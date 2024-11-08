@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div className="m-5">
-        Parikshit
+        Parikshi
       </div>
     </>
   )
