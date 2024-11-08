@@ -5,7 +5,7 @@ function App() {
   return (
     <>
       <div className="m-5">
-        <Button variant='destructive'>Click me</Button>
+        Parikshi
       </div>
     </>
   )
