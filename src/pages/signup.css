@@ -1,8 +1,17 @@
 .authBox {
-    margin-top: 17vh;
-    width: 35%;
+    width: 40vw;
+    min-width: 450px;
+    max-width: 550px;
     padding: 2rem 5rem;
     border-radius: 2rem;
-    background: #282828;
-    backdrop-filter: blur(400px);
+    background: transparent;
+    backdrop-filter: blur(50px);
+}
+
+@media (width<521px) {
+    .authBox {
+        width: 1vw;
+        min-width: 20rem;
+        padding: 1rem 2rem;
+    }
 }
