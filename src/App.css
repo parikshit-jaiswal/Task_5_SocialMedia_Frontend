@@ -26,7 +26,6 @@ svg {
 }
 
 .key {
-    font-size: 15vw;
     display: inline-block;
     letter-spacing: -1vw;
     transition: transform 0.2s;
