@@ -1,13 +1,20 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { Button } from './components/ui/button'
+import SignupPage from './pages/SignUpPage'
+import Themebtn from './components/extra/ThemeBtn'
+import SplashScreen from './pages/SplashScreen'
+import LoginPage from './pages/LoginPage'
 
 function App() {
   return (
-    <>
-      <div className="m-5">
-        <Button>This is for demo </Button>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<SplashScreen />} />
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
+      </Routes>
+    </BrowserRouter>
   )
 }
 

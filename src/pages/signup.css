@@ -1,0 +1,8 @@
+.authBox {
+    margin-top: 17vh;
+    width: 35%;
+    padding: 2rem 5rem;
+    border-radius: 2rem;
+    background: #282828;
+    backdrop-filter: blur(400px);
+}
