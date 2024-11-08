@@ -11,7 +11,10 @@ function LoginPage() {
 
     return (
         <>
-            <div className="w-full flex justify-center mt-[10vh]">
+            <svg viewBox="10 -10 170 80">
+                <text class="svgText" x="10" y="45">hola'</text>
+            </svg>
+            <div className="w-full flex justify-center mt-[-38rem]">
                 <div className="authBox">
                     <div className="font-baloo flex justify-center text-[2.5rem] font-extrabold"><p className='text-purple'>hola'</p> &nbsp;mi amigos</div>
                     <form className="flex flex-col gap-3 mt-2">
