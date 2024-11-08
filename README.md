@@ -9,9 +9,9 @@ Currently, two official plugins are available:
 
 
 
-# Halo - Social Media Platform
+# Hola' - Social Media Platform
 
-Halo is a full-stack social media platform where users can connect, share posts, like, comment, and interact in a friendly community environment. It features real-time interactions, a customizable user profile, and support for both desktop and mobile devices.
+Hola' is a full-stack social media platform where users can connect, share posts, like, comment, and interact in a friendly community environment. It features real-time interactions, a customizable user profile, and support for both desktop and mobile devices.
 
 ## Table Of Contents
 
@@ -21,7 +21,7 @@ Halo is a full-stack social media platform where users can connect, share posts,
 - Usage
 ## Project Overview
 
-Halo is a social media web application designed to facilitate seamless interaction between users. It includes common social media features such as:
+Hola' is a social media web application designed to facilitate seamless interaction between users. It includes common social media features such as:
 
 - User authentication and authorization (sign up, login, password recovery)
 - Post creation and management (text, images, videos)
@@ -30,7 +30,7 @@ Halo is a social media web application designed to facilitate seamless interacti
 - Real-time chat and notifications
 - User profile customization
 
-It uses a modern MERN stack (MongoDB, Express, React, Node.js) to ensure a smooth user experience and easy scalability.
+It uses a modern MERN stack (React, Node.js) to ensure a smooth user experience and easy scalability.
 
 
 ## Features
