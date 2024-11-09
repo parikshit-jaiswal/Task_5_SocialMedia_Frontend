@@ -18,7 +18,7 @@ svg {
 
 .svgText {
     fill: black;
-    stroke: white;
+    stroke:#5E506C;
     stroke-width: 3px;
     stroke-linejoin: round;
     paint-order: stroke;
