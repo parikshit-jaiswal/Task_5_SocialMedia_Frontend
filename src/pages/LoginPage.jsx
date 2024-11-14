@@ -15,8 +15,8 @@ function LoginPage() {
     return (
         <>
             {
-                _521 ? <svg viewBox="10 -10 170 80">
-                    <text class="svgText" x="10" y="45">hola'</text>
+                _521 ? <svg className='svg' viewBox="10 -10 170 80">
+                    <text className="svgText" x="10" y="45">hola'</text>
                 </svg> : <> <div className="text-5xl text-center mt-[15vh] font-extrabold text-purple">Sign In</div> <img className='p-36 mt-18' src="src\assets\auth.svg" alt="" /></>
             }
 

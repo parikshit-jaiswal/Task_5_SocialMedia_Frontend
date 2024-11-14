@@ -6,7 +6,7 @@
     color: #bbacf2;
 }
 
-svg {
+.svg {
     font-family: "Baloo Paaji 2", sans-serif;
     font-size: 5rem;
     font-weight: bold;
@@ -18,7 +18,7 @@ svg {
 
 .svgText {
     fill: black;
-    stroke:#5E506C;
+    stroke: #5e506c;
     stroke-width: 3px;
     stroke-linejoin: round;
     paint-order: stroke;
@@ -30,8 +30,6 @@ svg {
     letter-spacing: -1vw;
     transition: transform 0.2s;
 }
-
-
 
 @keyframes pressDown1 {
 
@@ -137,8 +135,6 @@ svg {
     }
 }
 
-
-
 .key:nth-child(1) {
     animation: pressDown1 2s infinite;
 }
@@ -170,9 +166,6 @@ svg {
 .key:nth-child(8) {
     animation: pressDown8 3.2s infinite;
 }
-
-
-
 
 /* extra stuff */
 .jux-linx {
@@ -209,3 +202,14 @@ a:nth-child(2):hover {
     border: 1px solid rgba(255, 255, 255, 0.4);
     box-shadow: 0px 2px 0 #ff5757;
 }
+
+/* for auto select in chrome */
+/* input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 5000s ease-in-out 0s;
+  box-shadow: inset 0 0 20px 20px #23232329;
+} */

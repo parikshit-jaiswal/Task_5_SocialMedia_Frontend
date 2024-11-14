@@ -5,9 +5,11 @@ import SignupPage from './pages/SignupPage'
 import Themebtn from './components/extra/ThemeBtn'
 import SplashScreen from './pages/SplashScreen'
 import LoginPage from './pages/LoginPage'
+import HomePage from './pages/HomePage'
 
 function App() {
   return (
+    // <HomePage />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SplashScreen />} />
