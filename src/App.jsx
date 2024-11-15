@@ -6,6 +6,9 @@ import Themebtn from './components/extra/ThemeBtn'
 import SplashScreen from './pages/SplashScreen'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
+import Navbar from "./components/Navbar"
+import './components/Navbar.css';
+import Sidebar from "./components/Sidebar"
 
 function App() {
   return (
@@ -15,6 +18,7 @@ function App() {
         <Route path="/" element={<SplashScreen />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   )
