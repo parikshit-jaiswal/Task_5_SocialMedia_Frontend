@@ -9,7 +9,7 @@ import PasswordInput from "@/components/extra/PasswordInput";
 
 import React, { useState } from 'react'
 import { useMediaQuery } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import axios from 'axios';
 import { Loader2 } from 'lucide-react';
@@ -90,7 +90,7 @@ function LoginPage() {
                                 <Button size='full' variant='outline' type="button">Continue with <MailOutlineIcon /></Button>
                             </div>
                             <div className=" flex justify-center">Don't have an account? <p className='text-purple ml-1 hover:underline hover:cursor-pointer text-nowrap
-                            '> Sign up</p></div>
+                            '><Link to={"/signup"}>Sign up</Link></p></div>
                         </form>
                     </div>
                 </div >

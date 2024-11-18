@@ -8,7 +8,7 @@ import React, { useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import { toast } from "sonner";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import PasswordInput from "@/components/extra/PasswordInput";
 import { Loader2 } from "lucide-react";
 
@@ -131,7 +131,7 @@ function SignupPage() {
                             <div className="flex justify-center mt-4">
                                 Already have an account?
                                 <p className="text-purple ml-1 hover:underline cursor-pointer">
-                                    Sign in
+                                    <Link to={"/login"}>Sign in</Link>
                                 </p>
                             </div>
                         </form>
