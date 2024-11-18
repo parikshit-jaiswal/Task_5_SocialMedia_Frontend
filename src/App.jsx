@@ -17,11 +17,11 @@ function App() {
     // <VerifyEmailPage />
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<SplashScreen />} />
+        <Route path="/flash" element={<SplashScreen />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/verify/email" element={<VerifyEmailPage />} />
-        <Route path="/home" element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   )
