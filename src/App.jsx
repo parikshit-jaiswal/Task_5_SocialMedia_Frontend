@@ -10,11 +10,11 @@ import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import Navbar from "./components/Navbar"
 import Sidebar from "./components/Sidebar"
 import PostCard from './components/PostCard';
+import ProfilePage from './pages/ProfilePage'
 
 function App() {
   return (
-    // <HomePage />
-    // <VerifyEmailPage />
+
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SplashScreen />} />
@@ -22,6 +22,7 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/verify/email" element={<VerifyEmailPage />} />
         <Route path="/home" element={<HomePage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </BrowserRouter>
   )
