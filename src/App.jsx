@@ -7,8 +7,8 @@ import SplashScreen from './pages/SplashScreen'
 import LoginPage from './pages/LoginPage'
 import HomePage from './pages/HomePage'
 import Navbar from "./components/Navbar"
-// import './components/Navbar.css';
 import Sidebar from "./components/Sidebar"
+import PostCard from './components/PostCard';
 
 function App() {
   return (
