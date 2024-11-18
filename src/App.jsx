@@ -7,6 +7,9 @@ import SplashScreen from './pages/SplashScreen'
 import LoginPage from './pages/auth/LoginPage'
 import HomePage from './pages/HomePage'
 import VerifyEmailPage from './pages/auth/VerifyEmailPage'
+import Navbar from "./components/Navbar"
+import Sidebar from "./components/Sidebar"
+import PostCard from './components/PostCard';
 
 function App() {
   return (
@@ -18,6 +21,7 @@ function App() {
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/verify/email" element={<VerifyEmailPage />} />
+        <Route path="/home" element={<HomePage />} />
       </Routes>
     </BrowserRouter>
   )
