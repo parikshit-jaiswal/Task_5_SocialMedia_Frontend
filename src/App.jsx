@@ -1,11 +1,12 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import './App.css'
 import { Button } from './components/ui/button'
-import SignupPage from './pages/SignupPage'
+import SignupPage from './pages/auth/SignupPage'
 import Themebtn from './components/extra/ThemeBtn'
 import SplashScreen from './pages/SplashScreen'
-import LoginPage from './pages/LoginPage'
+import LoginPage from './pages/auth/LoginPage'
 import HomePage from './pages/HomePage'
+import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import Navbar from "./components/Navbar"
 import Sidebar from "./components/Sidebar"
 import PostCard from './components/PostCard';
@@ -13,11 +14,13 @@ import PostCard from './components/PostCard';
 function App() {
   return (
     // <HomePage />
+    // <VerifyEmailPage />
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SplashScreen />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/verify/email" element={<VerifyEmailPage />} />
         <Route path="/home" element={<HomePage />} />
       </Routes>
     </BrowserRouter>

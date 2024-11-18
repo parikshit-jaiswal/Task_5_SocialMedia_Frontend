@@ -8,7 +8,9 @@ import React, { useState } from "react";
 import { useMediaQuery } from "@mui/material";
 import { toast } from "sonner";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import PasswordInput from "@/components/extra/PasswordInput";
+import { Loader2 } from "lucide-react";
 
 function SignupPage() {
     const [input, setInput] = useState({
@@ -20,6 +22,7 @@ function SignupPage() {
     const navigate = useNavigate();
     const [confirmPassword, setConfirmPassword] = useState("");
     const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
 
     const changeEventHandler = (e) => {
         setInput({ ...input, [e.target.name]: e.target.value });
@@ -38,6 +41,7 @@ function SignupPage() {
         setError("");
         console.log(input);
         try {
+            setLoading(true);
             const res = await axios.post('http://snapverse-6nqx.onrender.com/api/auth/signup', input, {
                 headers: {
                     'Content-Type': 'application/json'
@@ -45,8 +49,8 @@ function SignupPage() {
                 withCredentials: true
             });
             if (res.data.success) {
-                navigate("/login");
-                toast.success("Signup succesfull");
+                navigate("/verify/email");
+                toast.success("Signup succesfull"); ``
                 setInput({
                     userName: "",
                     email: "",
@@ -56,6 +60,8 @@ function SignupPage() {
         } catch (error) {
             console.log(error);
             toast.error("Some error occured");
+        } finally {
+            setLoading(false);
         }
     };
 
@@ -85,13 +91,26 @@ function SignupPage() {
                             <p className="text-purple">hola'</p>&nbsp;mi amigos
                         </div>
 
-                        <form onSubmit={signupHandler} className="flex flex-col gap-3 mt-2">
+                        <form onSubmit={signupHandler} autoComplete="off" className="flex flex-col gap-3 mt-2">
                             <Input type="text" name="name" value={input.name} onChange={changeEventHandler} placeholder="Enter your full name" />
-                            <Input type="text" name="userName" value={input.userName} onChange={changeEventHandler} placeholder="Enter your username" />
                             <Input type="email" name="email" value={input.email} onChange={changeEventHandler} placeholder="Enter your email" />
-                            <Input type="password" name="password" value={input.password} onChange={changeEventHandler} placeholder="Enter your password" />
+                            <Input type="text" name="userName" value={input.userName} onChange={changeEventHandler} placeholder="Create username"></Input>
+                            {/* <Input type="password" name="password" value={input.password} onChange={changeEventHandler} placeholder="Create password" /> */}
+                            <div className="mb-[-1.5rem]"><PasswordInput input={input} changeEventHandler={changeEventHandler} placeholder={"Create Password"} name={"password"} /></div>
                             <Input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} placeholder="Confirm password" />
-                            <Button variant="purple">Sign up</Button>
+                            {/* <div className="mb-[-1.5rem]"><PasswordInput input={input} changeEventHandler={changeEventHandler} placeholder={"Confirm Password"} /></div> */}
+
+                            {/* <Button variant="purple">Sign up</Button> */}
+                            {
+                                loading ? (
+                                    <Button variant="purple" disabled >
+                                        <Loader2 className='mr-2 h-4 w-4 animate-spin' />
+                                        Please wait
+                                    </Button>
+                                ) : (
+                                    <Button type='submit' variant="purple">Signup</Button>
+                                )
+                            }
                             {error && <p className="error-message text-red-500 text-end">{error}</p>}
 
                             <div className="flex justify-center items-center gap-2 my-3">
@@ -101,10 +120,10 @@ function SignupPage() {
                             </div>
 
                             <div className="flex gap-2 w-full">
-                                <Button size="full" variant="outline">
+                                <Button size="full" type="button" variant="outline">
                                     Continue with <GoogleIcon />
                                 </Button>
-                                <Button size="full" variant="outline">
+                                <Button size="full" type="button" variant="outline">
                                     Continue with <MailOutlineIcon />
                                 </Button>
                             </div>
@@ -112,13 +131,13 @@ function SignupPage() {
                             <div className="flex justify-center mt-4">
                                 Already have an account?
                                 <p className="text-purple ml-1 hover:underline cursor-pointer">
-                                    Sign in
+                                    <Link to={"/login"}>Sign in</Link>
                                 </p>
                             </div>
                         </form>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
         </>
     );
 }
