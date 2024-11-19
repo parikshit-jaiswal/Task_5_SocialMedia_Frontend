@@ -13,6 +13,8 @@ import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'sonner';
 import axios from 'axios';
 import { Loader2 } from 'lucide-react';
+import { useDispatch } from 'react-redux';
+import { setAuthUser } from '@/redux/authSlice';
 
 function LoginPage() {
     const [input, setInput] = useState({
@@ -21,6 +23,7 @@ function LoginPage() {
     });
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const _521 = useMediaQuery("(min-width:521px)")
 
     const changeEventHandler = (e) => {
@@ -38,6 +41,7 @@ function LoginPage() {
                 withCredentials: true
             });
             if (res.data.success) {
+                dispatch(setAuthUser(res.data.user))
                 navigate("/");
                 toast.success("Login succesfull");
                 setInput({

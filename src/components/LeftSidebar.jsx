@@ -1,8 +1,16 @@
 import React, { useState } from 'react';
 import { Home, MessageCircle, Compass, PlusCircle, Bell } from 'lucide-react';
+import CreatePost from './CreatePost';
 
-const Sidebar = () => {
+const LeftSidebar = () => {
   const [activeItem, setActiveItem] = useState('Home');
+  const [open, setOpen] = useState(false);
+
+  const sidebarHandler = (textType) => {
+    if (textType === 'Create') {
+      setOpen(true);
+    }
+  }
 
   const menuItems = [
     { icon: Home, label: 'Home' },
@@ -18,21 +26,26 @@ const Sidebar = () => {
         {menuItems.map((item) => (
           <button
             key={item.label}
-            onClick={() => setActiveItem(item.label)}
+            onClick={() => {
+              setActiveItem(item.label);
+              sidebarHandler(item.label);
+            }}
             className={`w-full flex flex-col items-center justify-center transition-all duration-200 group
               ${activeItem === item.label ? 'text-[#bbacf2]' : 'text-white hover:text-[#bbacf2]'}`}
           >
-            <item.icon 
-              className={`w-6 h-6 mb-1 transition-all duration-200
+            <item.icon
+              className={`w-7 h-7 mb-1 transition-all duration-200
                 ${activeItem === item.label ? 'scale-110' : 'group-hover:scale-110'}`}
             />
             <span className="text-xs font-medium">{item.label}</span>
           </button>
         ))}
       </div>
+      <CreatePost open={open} setOpen={setOpen} />
     </div>
+
   );
 };
 
 
-export default Sidebar;
+export default LeftSidebar;

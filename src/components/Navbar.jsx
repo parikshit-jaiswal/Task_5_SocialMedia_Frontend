@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { Search, Bell, MapPin, ChevronDown } from 'lucide-react';
+import { useSelector } from 'react-redux';
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
-
+  const { user } = useSelector(store => store.auth)
+  console.log(user)
   return (
     <nav className="fixed top-0 left-0 right-0 bg-black px-6 py-4 z-50">
       <div className="flex items-center justify-between w-full">
@@ -40,12 +42,12 @@ const Navbar = () => {
           {/* User Profile */}
           <div className="flex items-center space-x-3">
             <img
-              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-              alt="Profile"
+              src={user ? user.profileImage.url : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
+              alt="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
               className="w-8 h-8 rounded-full border-2 border-[#bbacf2]"
             />
             <div className="flex items-center text-white hover:text-[#bbacf2] cursor-pointer transition-colors">
-              <span className="text-sm font-medium">@Naisyaa</span>
+              <span className="text-sm font-medium">{user ? user.userName : "User"}</span>
               <ChevronDown className="w-4 h-4 ml-1" />
             </div>
           </div>
