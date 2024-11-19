@@ -53,7 +53,7 @@ function HomePage() {
       <div className="pt-28">
         <Sidebar />
         <main className="ml-32 p-16">
-          <div className="w-4/5 mx-auto space-y-4">
+          <div className="w-5/5 mx-auto space-y-4">
             {posts.map((post, index) => (
               <PostCard key={index} {...post} />
             ))}

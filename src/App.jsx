@@ -9,9 +9,10 @@ import HomePage from './pages/HomePage'
 import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import Navbar from "./components/Navbar"
 import Sidebar from "./components/Sidebar"
-import PostCard from './components/PostCard';
+import PostCard from './components/PostCard'
 import ProfilePage from './pages/ProfilePage'
-
+import Privacy from "./components/privacy"
+import CreatePost from './components/CreatePost';
 function App() {
   return (
 
@@ -23,6 +24,8 @@ function App() {
         <Route path="/verify/email" element={<VerifyEmailPage />} />
         <Route path="/home" element={<HomePage />} />
         <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/privacy" element={<Privacy/>} />
+        <Route path="/createpost" element={<CreatePost/>} />
       </Routes>
     </BrowserRouter>
   )

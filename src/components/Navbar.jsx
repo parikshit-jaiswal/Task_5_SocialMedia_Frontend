@@ -23,7 +23,7 @@ const Navbar = () => {
               placeholder="search"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-[#343434] text-[#bbacf2] rounded-full py-2 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#bbacf2]"
+              className="w-full bg-[#1c1c1c] text-[#bbacf2] rounded-full py-2 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-[#bbacf2]"
             />
           </div>
         </div>
