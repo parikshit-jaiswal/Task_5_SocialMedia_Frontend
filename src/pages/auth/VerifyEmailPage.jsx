@@ -6,7 +6,7 @@ import axios from 'axios';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
-import OTPInput from '@/components/extra/OTPInput';
+import OTPInput from '@/components/extra/OTPInput.jsx';
 
 function VerifyEmailPage() {
     const _521 = useMediaQuery("(min-width:521px)");
