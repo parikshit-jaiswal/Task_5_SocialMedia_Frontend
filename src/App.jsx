@@ -15,6 +15,7 @@ import Privacy from "./components/privacy"
 import CreatePost from './components/CreatePost'
 import ExplorePage from './pages/ExplorePage'
 import SearchPage from './pages/SearchPage'
+import Settings from "./components/Settings"
 function App() {
   return (
 
@@ -30,6 +31,7 @@ function App() {
         <Route path="/privacy" element={<Privacy/>} />
         <Route path="/explore" element={<ExplorePage/>} />
         <Route path="/search" element={<SearchPage/>} />
+        <Route path="/settings" element={<Settings/>} />
       </Routes>
     </BrowserRouter>
   )
