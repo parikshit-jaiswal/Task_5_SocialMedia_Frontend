@@ -5,20 +5,18 @@ import LoginPage from './pages/auth/LoginPage'
 import MainLayout from './pages/MainLayout'
 import HomePage from './pages/home/HomePage'
 import VerifyEmailPage from './pages/auth/VerifyEmailPage'
+import ProtectedRoutes from './components/ProtectedRoutes'
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          {/* <Route path="profile/:id" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
-          <Route path="account/edit" element={<ProtectedRoutes><EditProfile /></ProtectedRoutes>} />
-          <Route path="chat" element={<ProtectedRoutes><ChatPage /></ProtectedRoutes>} /> */}
+        <Route path="/" element={<ProtectedRoutes><MainLayout /></ProtectedRoutes>}>
+          <Route index element={<ProtectedRoutes><HomePage /></ProtectedRoutes>} />
+          <Route path='/verify/email' element={<ProtectedRoutes><VerifyEmailPage /></ProtectedRoutes>} />
         </Route>
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path='/verify/email' element={<VerifyEmailPage />} />
       </Routes>
     </BrowserRouter>
   )
