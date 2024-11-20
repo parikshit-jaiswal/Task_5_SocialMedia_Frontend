@@ -20,29 +20,29 @@ import PersonalDetails from "./components/PersonalDetails"
 import PasswordSecurity from "./components/PasswordSecurity"
 function App() {
   return (
-    <BrowserRouter>
-    <Router>
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<HomePage />} />
-          {/* <Route path="profile/:id" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
-          <Route path="account/edit" element={<ProtectedRoutes><EditProfile /></ProtectedRoutes>} />
-          <Route path="chat" element={<ProtectedRoutes><ChatPage /></ProtectedRoutes>} /> */}
-        </Route>
-        <Route path="/login" element={<LoginPage />} />
-        <Route path="/verify/email" element={<VerifyEmailPage />} />
-        <Route path="/home" element={<HomePage />} />
-        <Route path="/profile" element={<ProfilePage />} />
-        <Route path="/createpost" element={<CreatePost/>} />
-        <Route path="/privacy" element={<Privacy/>} />
-        <Route path="/explore" element={<ExplorePage/>} />
-        <Route path="/search" element={<SearchPage/>} />
-        <Route path="/settings" element={<Settings/>} />
-        <Route path="/details" element={<PersonalDetails/>} />
-        <Route path="/passwordsecurity" element={<PasswordSecurity/>} />
-        <Route path="/signup" element={<SignupPage />} />
- </Routes>
-    </Router>
+    // <Router>
+    //   <Routes>
+    //     {/* <Route path="/" element={<MainLayout />}>
+    //       <Route index element={<HomePage />} /> */}
+    //     {/* <Route path="profile/:id" element={<ProtectedRoutes><Profile /></ProtectedRoutes>} />
+    //       <Route path="account/edit" element={<ProtectedRoutes><EditProfile /></ProtectedRoutes>} />
+    //       <Route path="chat" element={<ProtectedRoutes><ChatPage /></ProtectedRoutes>} /> */}
+    //     {/* </Route> */}
+    //     <Route path="/login" element={<LoginPage />} />
+    //     <Route path="/verify/email" element={<VerifyEmailPage />} />
+    //     <Route path="/home" element={<HomePage />} />
+    //     <Route path="/profile" element={<ProfilePage />} />
+    //     <Route path="/createpost" element={<CreatePost />} />
+    //     <Route path="/privacy" element={<Privacy />} />
+    //     <Route path="/explore" element={<ExplorePage />} />
+    //     <Route path="/search" element={<SearchPage />} />
+    //     <Route path="/settings" element={<Settings />} />
+    //     <Route path="/details" element={<PersonalDetails />} />
+    //     <Route path="/passwordsecurity" element={<PasswordSecurity />} />
+    //     <Route path="/signup" element={<SignupPage />} />
+    //   </Routes>
+    // </Router>
+    <ProfilePage />
   )
 }
 
