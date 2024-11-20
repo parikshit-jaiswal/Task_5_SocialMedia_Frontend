@@ -18,6 +18,10 @@ import SearchPage from './pages/SearchPage'
 import Settings from "./components/Settings"
 import PersonalDetails from "./components/PersonalDetails"
 import PasswordSecurity from "./components/PasswordSecurity"
+import LoggedIn from "./components/LoggedIn"
+import Saved from "./components/Saved"
+import SavedLogin from "./components/SavedLogin"
+import ChangePassword from './components/ChangePassword'
 function App() {
   return (
 
@@ -36,10 +40,14 @@ function App() {
         <Route path="/settings" element={<Settings/>} />
         <Route path="/details" element={<PersonalDetails/>} />
         <Route path="/passwordsecurity" element={<PasswordSecurity/>} />
+        <Route path="/loggedin" element={<LoggedIn/>} />
+        <Route path="/saved" element={<Saved/>} />
+        <Route path="/savedlogin" element={<SavedLogin/>} />
+        <Route path="/changepass" element={<ChangePassword/>} />
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default App
-PasswordSecurity
+ChangePassword
