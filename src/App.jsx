@@ -16,6 +16,7 @@ import CreatePost from './components/CreatePost'
 import ExplorePage from './pages/ExplorePage'
 import SearchPage from './pages/SearchPage'
 import Settings from "./components/Settings"
+import PersonalDetails from "./components/PersonalDetails"
 function App() {
   return (
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/explore" element={<ExplorePage/>} />
         <Route path="/search" element={<SearchPage/>} />
         <Route path="/settings" element={<Settings/>} />
+        <Route path="/details" element={<PersonalDetails/>} />
       </Routes>
     </BrowserRouter>
   )

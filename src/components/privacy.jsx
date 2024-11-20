@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaArrowLeft } from "react-icons/fa"; 
 
 const Privacy = () => {
   const [isPrivate, setIsPrivate] = useState(false);
@@ -9,8 +10,11 @@ const Privacy = () => {
 
   return (
     <div
-      className="w-[420px] h-[172px] bg-gray-800 text-white rounded-lg shadow-lg p-4 flex flex-col justify-between"
-      style={{ fontFamily: "Arial, sans-serif" }}
+      className="w-[420px] h-[172px] text-white rounded-lg shadow-lg p-4 flex flex-col justify-between"
+      style={{
+        fontFamily: "Helvetica, sans-serif",
+        backgroundColor: "#2B2A2A",
+      }}
     >
       {/* Header Section */}
       <div className="flex items-center gap-2">
@@ -18,14 +22,38 @@ const Privacy = () => {
           className="text-white p-2 rounded-full hover:bg-gray-700"
           onClick={() => alert("Go back")} // Replace with back logic
         >
-          ←
+          <FaArrowLeft />
         </button>
-        <h2 className="text-lg font-semibold">Account Privacy</h2>
+        <h2
+          className="font-semibold"
+          style={{
+            fontSize: "20.4px",
+            fontWeight: 700,
+            lineHeight: "28.56px",
+            textAlign: "center",
+            textUnderlinePosition: "from-font",
+            textDecorationSkipInk: "none",
+          }}
+        >
+          Account Privacy
+        </h2>
       </div>
 
       {/* Private Account Toggle */}
-      <div className="flex justify-between items-center mt-4">
-        <span className="text-base font-medium">Private Account</span>
+      <div className="flex justify-between items-center mt-2"> 
+        <span
+          className="font-medium"
+          style={{
+            fontSize: "20.4px",
+            fontWeight: 700,
+            lineHeight: "28.56px",
+            textAlign: "left",
+            textUnderlinePosition: "from-font",
+            textDecorationSkipInk: "none",
+          }}
+        >
+          Private Account
+        </span>
         <label className="relative inline-flex items-center cursor-pointer">
           <input
             type="checkbox"
