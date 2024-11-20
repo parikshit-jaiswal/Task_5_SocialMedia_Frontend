@@ -23,7 +23,7 @@ import { setPosts } from '@/redux/postSlice';
 
 export default function PostCard({ _id, user, image, caption, likes, comments }) {
   const [isLiked, setIsLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(likes.length);
+  const [likesCount, setLikesCount] = useState(likes?.length);
   const [open, setOpen] = useState(false);
   const { posts } = useSelector(store => store.post);
   const dispatch = useDispatch();
@@ -33,6 +33,7 @@ export default function PostCard({ _id, user, image, caption, likes, comments })
     setIsLiked(!isLiked);
     setLikesCount(prev => isLiked ? prev - 1 : prev + 1);
   };
+
 
   const deletePostHandler = async () => {
     try {
@@ -55,7 +56,7 @@ export default function PostCard({ _id, user, image, caption, likes, comments })
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
-            src={image?.url}
+            src={user?.profileImage?.url}
             alt={user}
             className="w-10 h-10 rounded-full object-cover border border-gray-600"
           />

@@ -7,6 +7,7 @@ import HomePage from './pages/home/HomePage'
 import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import ChatPage from './pages/ChatPage'
+import ProfilePage from './pages/ProfilePage'
 
 function App() {
   return (
@@ -15,7 +16,7 @@ function App() {
         <Route path="/" element={<ProtectedRoutes><MainLayout /></ProtectedRoutes>}>
           <Route index element={<ProtectedRoutes><HomePage /></ProtectedRoutes>} />
           <Route path='/chat' element={<ProtectedRoutes><ChatPage /></ProtectedRoutes>} />
-          {/* <Route path="/profile" element={<ProtectedRoutes><ProfilePage /></ProtectedRoutes>} /> */}
+          <Route path="/profile" element={<ProtectedRoutes><ProfilePage /></ProtectedRoutes>} />
         </Route>
         <Route path='/verify/email' element={<VerifyEmailPage />} />
         <Route path="/login" element={<LoginPage />} />
