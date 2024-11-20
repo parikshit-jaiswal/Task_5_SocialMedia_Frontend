@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Search, Bell, MapPin, ChevronDown } from 'lucide-react';
 import { useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -39,7 +40,7 @@ const Navbar = () => {
           </button>
 
           {/* User Profile */}
-          <div className="flex items-center space-x-3">
+          <Link to={'/profile'} className="flex items-center space-x-3">
             <img
               src={user ? user.profileImage.url : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
               alt="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png"
@@ -49,10 +50,10 @@ const Navbar = () => {
               <span className="text-sm font-medium">{user ? user.userName : "User"}</span>
               <ChevronDown className="w-4 h-4 ml-1" />
             </div>
-          </div>
+          </Link>
         </div>
       </div>
-    </nav>
+    </nav >
   );
 };
 
