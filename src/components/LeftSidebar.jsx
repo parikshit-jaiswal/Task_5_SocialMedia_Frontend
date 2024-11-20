@@ -1,15 +1,24 @@
 import React, { useState } from 'react';
 import { Home, MessageCircle, Compass, PlusCircle, Bell } from 'lucide-react';
 import CreatePost from './CreatePost';
+import { useNavigate } from 'react-router-dom';
 
 const LeftSidebar = () => {
   const [activeItem, setActiveItem] = useState('Home');
   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
 
   const sidebarHandler = (textType) => {
     if (textType === 'Create') {
       setOpen(true);
     }
+    if (textType === 'Messages') {
+      navigate('/chat')
+    }
+    if (textType === 'Home') {
+      navigate('/')
+    }
+
   }
 
   const menuItems = [

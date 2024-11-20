@@ -10,7 +10,7 @@ import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import Cookies from 'js-cookie';
 import { DialogTitle } from '@mui/material';
-// import { setPosts } from '@/redux/postSlice';
+import { setPosts } from '@/redux/postSlice';
 
 const CreatePost = ({ open, setOpen }) => {
     const imageRef = useRef();
@@ -19,9 +19,8 @@ const CreatePost = ({ open, setOpen }) => {
     const [imagePreview, setImagePreview] = useState("");
     const [loading, setLoading] = useState(false);
     const { user } = useSelector(store => store.auth);
-    const token = Cookies.get('token');
-    // const { posts } = useSelector(store => store.post);
-    // const dispatch = useDispatch();
+    const { posts } = useSelector(store => store.post);
+    const dispatch = useDispatch();
 
     const fileChangeHandler = async (e) => {
         const file = e.target.files?.[0];
@@ -47,12 +46,13 @@ const CreatePost = ({ open, setOpen }) => {
                 withCredentials: true
             });
             if (res) {
-                // dispatch(setPosts([res.data.post, ...posts]));
+                dispatch(setPosts([res.data, ...posts]));
                 toast.success("Post Created succesfully");
                 setOpen(false);
             }
         } catch (error) {
             toast.error("Some error occured");
+            setOpen(false);
         } finally {
             setLoading(false);
         }

@@ -6,6 +6,7 @@ import MainLayout from './pages/MainLayout'
 import HomePage from './pages/home/HomePage'
 import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import ProtectedRoutes from './components/ProtectedRoutes'
+import ChatPage from './pages/ChatPage'
 
 function App() {
   return (
@@ -13,8 +14,10 @@ function App() {
       <Routes>
         <Route path="/" element={<ProtectedRoutes><MainLayout /></ProtectedRoutes>}>
           <Route index element={<ProtectedRoutes><HomePage /></ProtectedRoutes>} />
-          <Route path='/verify/email' element={<ProtectedRoutes><VerifyEmailPage /></ProtectedRoutes>} />
+          <Route path='/chat' element={<ProtectedRoutes><ChatPage /></ProtectedRoutes>} />
+          {/* <Route path="/profile" element={<ProtectedRoutes><ProfilePage /></ProtectedRoutes>} /> */}
         </Route>
+        <Route path='/verify/email' element={<VerifyEmailPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
       </Routes>
