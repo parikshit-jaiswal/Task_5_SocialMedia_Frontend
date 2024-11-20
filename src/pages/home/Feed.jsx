@@ -1,8 +1,5 @@
 import React from 'react';
-import Navbar from '@/components/Navbar';
-import Sidebar from '@/components/Sidebar';
-import PostCard from '@/components/PostCard';
-
+import Posts from './Posts';
 const posts = [
   {
     username: "Alanna Myassa",
@@ -46,27 +43,12 @@ const posts = [
   }
 ];
 
-function HomePage() {
+function Feed() {
   return (
-    <div className="min-h-screen bg-[#111111]">
-      <Navbar />
-      <div className="pt-28">
-        <Sidebar />
-        <main className="ml-32 p-16">
-          <div className="w-5/5 mx-auto space-y-4">
-            {posts.map((post, index) => (
-              <PostCard key={index} {...post} />
-            ))}
-          </div>
-        </main>
-      </div>
-    </div>
-
-
-
-  );
+    <Posts />
+  )
 }
 
-export default HomePage;
+export default Feed;
 
 

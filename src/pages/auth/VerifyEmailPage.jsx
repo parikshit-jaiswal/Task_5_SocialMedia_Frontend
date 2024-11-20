@@ -1,17 +1,12 @@
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import GoogleIcon from '@mui/icons-material/Google';
 import './signup.css';
-
 import React, { useState } from 'react';
 import { useMediaQuery } from '@mui/material';
-import OTPInput from '@/components/extra/OtpInput';
 import axios from 'axios';
 import { toast } from 'sonner';
 import { useNavigate } from 'react-router-dom';
 import { Loader2 } from 'lucide-react';
+import OTPInput from '@/components/extra/OTPInput.jsx';
 
 function VerifyEmailPage() {
     const _521 = useMediaQuery("(min-width:521px)");

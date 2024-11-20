@@ -42,7 +42,7 @@ function SignupPage() {
         console.log(input);
         try {
             setLoading(true);
-            const res = await axios.post('http://snapverse-6nqx.onrender.com/api/auth/signup', input, {
+            const res = await axios.post('https://snapverse-6nqx.onrender.com/api/auth/signup', input, {
                 headers: {
                     'Content-Type': 'application/json'
                 },
@@ -58,7 +58,6 @@ function SignupPage() {
                 });
             }
         } catch (error) {
-            console.log(error);
             toast.error(error.response.data.message);
         } finally {
             setLoading(false);
