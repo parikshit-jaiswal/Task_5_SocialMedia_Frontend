@@ -59,7 +59,7 @@ function SignupPage() {
             }
         } catch (error) {
             console.log(error);
-            toast.error("Some error occured");
+            toast.error(error.response.data.message);
         } finally {
             setLoading(false);
         }
