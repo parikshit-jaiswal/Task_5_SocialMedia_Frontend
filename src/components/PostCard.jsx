@@ -18,18 +18,17 @@ import { Label } from "@/components/ui/label"
 import CommentDialog from './CommentDialog';
 
 
-export default function PostCard({ username, imageUrl, caption, likes, comments, shares }) {
+export default function PostCard({ user, image, caption, likes, comments }) {
   const [isLiked, setIsLiked] = useState(false);
-  const [likesCount, setLikesCount] = useState(likes);
+  const [likesCount, setLikesCount] = useState(likes.length);
   const [open, setOpen] = useState(false);
+  console.log({ user, image, caption, likes, comments })
 
   const handleLike = () => {
     setIsLiked(!isLiked);
     setLikesCount(prev => isLiked ? prev - 1 : prev + 1);
   };
 
-  //profile picture URL from username using UI Avatars
-  const profilePicUrl = `https://ui-avatars.com/api/?name=${encodeURIComponent(username)}&background=random&color=fff&size=128`;
 
   return (
     <div className="bg-[#282828] rounded-xl overflow-hidden border-2 border-[#bbacf2] text-gray-200 w-full">
@@ -37,11 +36,11 @@ export default function PostCard({ username, imageUrl, caption, likes, comments,
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
           <img
-            src={profilePicUrl}
-            alt={username}
+            src={image}
+            alt={user}
             className="w-10 h-10 rounded-full object-cover border border-gray-600"
           />
-          <span className="font-medium text-lg">{username}</span>
+          <span className="font-medium text-lg">{user.name}</span>
         </div>
         <button className="text-gray-400 hover:text-gray-200">
           <span className="text-lg">•••</span>
@@ -51,7 +50,7 @@ export default function PostCard({ username, imageUrl, caption, likes, comments,
       {/* Caption */}
       <div className="px-4 pb-4">
         <p className="text-sm leading-relaxed">
-          <span className="font-medium text-base block mb-1">{username}</span>
+          <span className="font-medium text-base block mb-1">{user.name}</span>
           {caption}
         </p>
       </div>
@@ -59,7 +58,7 @@ export default function PostCard({ username, imageUrl, caption, likes, comments,
       {/* Image */}
       <div className="relative w-full px-0 pb-4">
         <img
-          src={imageUrl}
+          src={image.url}
           alt="Post content"
           className="w-full object-cover rounded-xl"
         />
@@ -81,7 +80,7 @@ export default function PostCard({ username, imageUrl, caption, likes, comments,
 
           <div onClick={() => setOpen(true)} className="flex items-center gap-2 hover:text-gray-200">
             <MessageCircle size={24} />
-            <span className="text-sm">{comments}</span>
+            <span className="text-sm">{comments.length}</span>
           </div>
           <CommentDialog open={open} setOpen={setOpen} />
 
@@ -91,7 +90,8 @@ export default function PostCard({ username, imageUrl, caption, likes, comments,
             <DialogTrigger asChild>
               <button className="flex items-center gap-2 hover:text-gray-200">
                 <Share2 size={24} />
-                <span className="text-sm">{shares}</span>
+                {/* share */}
+                <span className="text-sm">{8}</span>
               </button>
             </DialogTrigger>
             <DialogContent className="sm:max-w-md">

@@ -55,7 +55,6 @@ function LoginPage() {
         } finally {
             setLoading(false);
         }
-        console.log(input)
     }
 
     return (

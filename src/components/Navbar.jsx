@@ -5,7 +5,6 @@ import { useSelector } from 'react-redux';
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const { user } = useSelector(store => store.auth)
-  console.log(user)
   return (
     <nav className="fixed top-0 left-0 right-0 bg-black px-6 py-4 z-50">
       <div className="flex items-center justify-between w-full">

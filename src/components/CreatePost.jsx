@@ -35,27 +35,28 @@ const CreatePost = ({ open, setOpen }) => {
     const createPostHandler = async (e) => {
         const formData = new FormData();
         formData.append("caption", caption);
-        formData.append("userName", user.userName);
+        formData.append("userName", user?.userName);
         if (imagePreview) formData.append("image", file);
         try {
             setLoading(true);
-            const res = await axios.post('https://snapverse-6nqx.onrender.com/posts', formData, {
+            // console.log({ token });
+            const res = await axios.post(`https://snapverse-6nqx.onrender.com/posts`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
                 withCredentials: true
             });
-            if (res.data.success) {
-                dispatch(setPosts([res.data.post, ...posts]));
-                toast.success(res.data.message);
+            if (res) {
+                // dispatch(setPosts([res.data.post, ...posts]));
+                toast.success("Post Created succesfully");
                 setOpen(false);
             }
         } catch (error) {
-            toast.error(error.response.data.message);
+            toast.error("Some error occured");
         } finally {
             setLoading(false);
         }
-        console.log(file, caption)
+        // console.log(file, caption)
     }
 
     return (
