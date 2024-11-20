@@ -17,6 +17,7 @@ import ExplorePage from './pages/ExplorePage'
 import SearchPage from './pages/SearchPage'
 import Settings from "./components/Settings"
 import PersonalDetails from "./components/PersonalDetails"
+import PasswordSecurity from "./components/PasswordSecurity"
 function App() {
   return (
 
@@ -34,9 +35,11 @@ function App() {
         <Route path="/search" element={<SearchPage/>} />
         <Route path="/settings" element={<Settings/>} />
         <Route path="/details" element={<PersonalDetails/>} />
+        <Route path="/passwordsecurity" element={<PasswordSecurity/>} />
       </Routes>
     </BrowserRouter>
   )
 }
 
 export default App
+PasswordSecurity
