@@ -30,7 +30,7 @@ function VerifyEmailPage() {
         event.preventDefault();
         setLoading(true);
         try {
-            const res = await axios.post('http://localhost:3000/api/auth/verify-email', otp, {
+            const res = await axios.post('https://snapverse-6nqx.onrender.com/api/auth/verify-email', otp, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

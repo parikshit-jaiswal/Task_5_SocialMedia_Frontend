@@ -10,8 +10,7 @@ const SavedLogin = () => {
   
         <button className="flex items-center mb-4 text-white">
           <FiArrowLeft className="mr-2 text-xl" />
-        </button>
-
+          </button>
 
         <h1 className="text-2xl font-semibold mb-2">Saved login info</h1>
 
