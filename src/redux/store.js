@@ -2,6 +2,7 @@ import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import authSlice from "./authSlice.js";
 import postSlice from "./postSlice.js";
 import chatSlice from './chatSlice.js'
+import socketSlice from './socketSlice.js'
 
 import {
     persistReducer,
@@ -24,7 +25,9 @@ const persistConfig = {
 const rootReducer = combineReducers({
     auth: authSlice,
     post: postSlice,
+    socketio: socketSlice,
     chat: chatSlice,
+
 })
 
 const persistedReducer = persistReducer(persistConfig, rootReducer)
@@ -33,9 +36,7 @@ const store = configureStore({
     reducer: persistedReducer,
     middleware: (getDefaultMiddleware) =>
         getDefaultMiddleware({
-            serializableCheck: {
-                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-            },
+            serializableCheck: false, // Disable serializable checks
         }),
 });
 export default store;

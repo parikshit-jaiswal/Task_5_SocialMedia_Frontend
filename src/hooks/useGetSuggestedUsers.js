@@ -11,7 +11,7 @@ const useGetSuggestedUsers = () => {
             try {
                 const res = await axios.get('https://snapverse-6nqx.onrender.com/home/available-people', { withCredentials: true });
                 if (res) {
-                    // dispatch(setSuggestedUsers(res.data.users));
+                    dispatch(setSuggestedUsers(res.data.AllFollowings));
                     console.log(res)
                 }
             } catch (error) {
