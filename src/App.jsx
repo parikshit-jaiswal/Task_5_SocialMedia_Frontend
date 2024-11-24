@@ -8,8 +8,44 @@ import VerifyEmailPage from './pages/auth/VerifyEmailPage'
 import ProtectedRoutes from './components/ProtectedRoutes'
 import ChatPage from './pages/ChatPage'
 import ProfilePage from './pages/ProfilePage'
+import { io } from "socket.io-client";
+import { useDispatch, useSelector } from 'react-redux'
+import { setOnlineUsers } from './redux/chatSlice'
+import { setSocket } from './redux/socketSlice'
+import { useEffect } from 'react'
 
 function App() {
+
+  const { user } = useSelector(store => store.auth);
+  const dispatch = useDispatch()
+  const { socket } = useSelector(store => store.socketio)
+
+  useEffect(() => {
+    if (user) {
+      const socketio = io('https://snapverse-6nqx.onrender.com/', {
+        transports: ['websocket']
+      });
+      dispatch(setSocket(socketio));
+      socketio.emit('join', { userId: user._id });
+
+      // listen all the events
+      // socketio.on('getOnlineUsers', (onlineUsers) => {
+      //   dispatch(setOnlineUsers(onlineUsers));
+      // });
+
+      // socketio.on('notification', (notification) => {
+      //   dispatch(setLikeNotification(notification));
+      // });
+
+      return () => {
+        socketio.close();
+        dispatch(setSocket(null));
+      }
+    } else if (socket) {
+      socket.close();
+      dispatch(setSocket(null));
+    }
+  }, [user, dispatch]);
   return (
     <BrowserRouter>
       <Routes>

@@ -92,7 +92,7 @@ export default function PostCard({ _id, user, image, caption, likes, comments })
         <img
           src={image?.url}
           alt="Post content"
-          className="w-full h-[80vh] object-contain rounded-xl"
+          className="w-full h-[55vh] object-cover rounded-xl"
         />
       </div>
 

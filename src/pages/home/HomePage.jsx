@@ -6,8 +6,8 @@ import useGetAllPost from '@/hooks/useGetAllPost'
 import useGetSuggestedUsers from '@/hooks/useGetSuggestedUsers'
 
 const HomePage = () => {
-    useGetAllPost()
-    useGetSuggestedUsers()
+    useGetAllPost();
+    useGetSuggestedUsers();
     return (
         <div className='flex'>
             <div className='flex-grow'>

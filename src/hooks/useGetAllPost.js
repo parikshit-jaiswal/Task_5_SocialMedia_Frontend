@@ -10,12 +10,9 @@ const useGetAllPost = () => {
         const fetchAllPost = async () => {
             try {
                 const res = await axios.get('https://snapverse-6nqx.onrender.com/posts', { withCredentials: true });
-                // if (res.data.success) {
-                //     console.log(res.data.posts);
-                //     // dispatch(setPosts(res.data.posts));
-                // }
-                // console.log(res.data.posts);
-                dispatch(setPosts(res.data.posts));
+                if (res) {
+                    dispatch(setPosts(res.data.posts));
+                }
             } catch (error) {
                 console.log(error);
             }
