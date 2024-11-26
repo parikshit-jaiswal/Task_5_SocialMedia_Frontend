@@ -3,6 +3,7 @@ import { Button } from './ui/button'
 import { Radio } from 'lucide-react'
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
+import { v4 as uuidv4 } from 'uuid';
 
 function ProfileRightSidebar() {
     return (
@@ -14,9 +15,9 @@ function ProfileRightSidebar() {
                 </div>
                 <div className="addFriend">
                     <div className="flex justify-between mt-5 px-1 text-xl"><p>Add friend</p><p>See All</p></div>
-                    {[1, 2, 3, 4, 5].map(() => {
+                    {[1, 2, 3, 4, 5].map((index) => {
                         return (
-                            <div className="friend flex justify-between items-center px-1 mt-5">
+                            <div key={index} className="friend flex justify-between items-center px-1 mt-5">
                                 <div className="flex items-center gap-4"><img className='h-[4rem] w-[4rem] rounded-[100%] object-cover' src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                     <p className='text-xl'>Parikshit Jaiswal</p></div>
                                 <div className=""><PersonAddAlt1Icon style={{ color: '#bbacf2', fontSize: '3rem' }} /></div>
@@ -30,7 +31,7 @@ function ProfileRightSidebar() {
                     <div className="flex justify-between mt-5 px-1 text-xl"><p>Add friend</p><p>See All</p></div>
                     {[1, 2, 3, 4, 5].map(() => {
                         return (
-                            <div className="friend flex justify-between items-center px-1 mt-5">
+                            <div key={uuidv4()} className="friend flex justify-between items-center px-1 mt-5">
                                 <div className="flex items-center gap-4"><img className='h-[4rem] w-[4rem] rounded-[100%] object-cover' src="https://plus.unsplash.com/premium_photo-1671656349322-41de944d259b?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                                     <p className='text-xl'>Parikshit Jaiswal</p></div>
                                 <div className=""><PersonAddAlt1Icon style={{ color: '#bbacf2', fontSize: '3rem' }} /></div>

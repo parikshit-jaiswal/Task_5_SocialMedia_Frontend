@@ -23,15 +23,11 @@ const Navbar = () => {
   const dispatch = useDispatch();
 
   const logoutHandler = async () => {
-    // try {
     dispatch(setAuthUser(null));
     dispatch(setSelectedPost(null));
     dispatch(setPosts([]));
     navigate("/login");
     toast.success('Logout Successfull');
-    // } catch (error) {
-    //   toast.error('Some error occured');
-    // }
   }
 
   return (

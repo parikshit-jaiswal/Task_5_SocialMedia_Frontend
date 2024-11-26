@@ -52,7 +52,7 @@ const Posts = () => {
                 <main className="ml-40 p-5">
                     <div className="w-4/5 mx-auto space-y-4">
                         {posts.map((post, index) => (
-                            <PostCard key={index} {...post} />
+                            <PostCard key={index} post={post} />
                         ))}
                     </div>
                 </main>
