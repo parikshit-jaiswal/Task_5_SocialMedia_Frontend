@@ -13,14 +13,14 @@ import ReactCrop, { centerCrop, makeAspectCrop } from 'react-image-crop';
 import 'react-image-crop/dist/ReactCrop.css';
 
 const CreatePost = ({ open, setOpen }) => {
-  const inputRef = useRef(); // Reference for file input
-  const imageRef = useRef(); // Reference for the img element
-  const [file, setFile] = useState(null); // Original file
-  const [caption, setCaption] = useState(''); // Caption for the post
-  const [imagePreview, setImagePreview] = useState(''); // Data URL for preview
-  const [crop, setCrop] = useState(null); // Current crop state
-  const [completedCrop, setCompletedCrop] = useState(null); // Final crop dimensions
-  const [loading, setLoading] = useState(false); // Loading state for post creation
+  const inputRef = useRef();
+  const imageRef = useRef();
+  const [file, setFile] = useState(null);
+  const [caption, setCaption] = useState('');
+  const [imagePreview, setImagePreview] = useState('');
+  const [crop, setCrop] = useState(null);
+  const [completedCrop, setCompletedCrop] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { user } = useSelector((store) => store.auth);
   const { posts } = useSelector((store) => store.post);
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ const CreatePost = ({ open, setOpen }) => {
   const MIN_DIMENSION = 500;
   const ASPECT_RATIO = 1.2;
 
-  // On image load, calculate an initial crop based on aspect ratio
+
   const onImageLoad = (e) => {
     const { width, height } = e.currentTarget;
     const crop = makeAspectCrop(
@@ -50,7 +50,7 @@ const CreatePost = ({ open, setOpen }) => {
     if (file) {
       setFile(file);
       const dataUrl = await readFileAsDataURL(file);
-      setImagePreview(dataUrl); // Generate preview
+      setImagePreview(dataUrl);
     }
   };
 
@@ -93,7 +93,7 @@ const CreatePost = ({ open, setOpen }) => {
     });
   };
 
-  // Handle post creation
+
   const createPostHandler = async () => {
     const formData = new FormData();
     formData.append('caption', caption);
