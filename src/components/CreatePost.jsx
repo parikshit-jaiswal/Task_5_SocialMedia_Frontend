@@ -151,23 +151,20 @@ const CreatePost = ({ open, setOpen }) => {
           className="focus-visible:ring-transparent border-none"
           placeholder="Write a caption..."
         />
+
         <div className="flex justify-center">
-          {imagePreview && (
-            <ReactCrop
-              crop={crop}
-              onChange={(newCrop) => setCrop(newCrop)}
-              onComplete={(c) => setCompletedCrop(c)}
-              keepSelection
-              aspect={ASPECT_RATIO}
-            >
-              <img
-                src={imagePreview}
-                onLoad={onImageLoad}
-                ref={imageRef}
-                alt="Crop preview"
-              />
-            </ReactCrop>
-          )}
+          <ReactCrop
+            crop={crop}
+            onChange={(pixelCrop) => setCrop(pixelCrop)}
+            onComplete={(c) => setCompletedCrop(c)}
+            keepSelection
+            aspect={ASPECT_RATIO}
+            maxHeight={MIN_DIMENSION}
+          >
+            <div className="flex justify-center h-[50vh]">
+              <img className='' src={imagePreview} onLoad={onImageLoad} ref={imageRef} />
+            </div>
+          </ReactCrop>
         </div>
         <input
           ref={inputRef}
