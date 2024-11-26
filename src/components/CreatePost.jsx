@@ -151,6 +151,7 @@ const CreatePost = ({ open, setOpen }) => {
           className="focus-visible:ring-transparent border-none"
           placeholder="Write a caption..."
         />
+
         <div className="flex justify-center">
           {imagePreview && (
             <ReactCrop
@@ -168,6 +169,7 @@ const CreatePost = ({ open, setOpen }) => {
               />
             </ReactCrop>
           )}
+          
         </div>
         <input
           ref={inputRef}
