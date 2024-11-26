@@ -153,18 +153,23 @@ const CreatePost = ({ open, setOpen }) => {
         />
 
         <div className="flex justify-center">
-          <ReactCrop
-            crop={crop}
-            onChange={(pixelCrop) => setCrop(pixelCrop)}
-            onComplete={(c) => setCompletedCrop(c)}
-            keepSelection
-            aspect={ASPECT_RATIO}
-            maxHeight={MIN_DIMENSION}
-          >
-            <div className="flex justify-center h-[50vh]">
-              <img className='' src={imagePreview} onLoad={onImageLoad} ref={imageRef} />
-            </div>
-          </ReactCrop>
+          {imagePreview && (
+            <ReactCrop
+              crop={crop}
+              onChange={(newCrop) => setCrop(newCrop)}
+              onComplete={(c) => setCompletedCrop(c)}
+              keepSelection
+              aspect={ASPECT_RATIO}
+            >
+              <img
+                src={imagePreview}
+                onLoad={onImageLoad}
+                ref={imageRef}
+                alt="Crop preview"
+              />
+            </ReactCrop>
+          )}
+          
         </div>
         <input
           ref={inputRef}
