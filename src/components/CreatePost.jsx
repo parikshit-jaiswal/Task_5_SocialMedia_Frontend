@@ -121,6 +121,8 @@ const CreatePost = ({ open, setOpen }) => {
         dispatch(setPosts([res.data, ...posts]));
         toast.success('Post Created successfully');
         setOpen(false);
+        setCaption("")
+        setImagePreview("")
       }
     } catch (error) {
       console.error('Error creating post:', error);
@@ -161,7 +163,8 @@ const CreatePost = ({ open, setOpen }) => {
             aspect={ASPECT_RATIO}
             maxHeight={MIN_DIMENSION}
           >
-            <div className="flex justify-center h-[50vh]">
+            <div className={`flex justify-center ${imagePreview ? 'h-[50vh]' : ''}`}>
+
               <img className='' src={imagePreview} onLoad={onImageLoad} ref={imageRef} />
             </div>
           </ReactCrop>
