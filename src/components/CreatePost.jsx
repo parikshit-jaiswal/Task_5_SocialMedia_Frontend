@@ -50,7 +50,7 @@ const CreatePost = ({ open, setOpen }) => {
     if (file) {
       setFile(file);
       const dataUrl = await readFileAsDataURL(file);
-      setImagePreview(dataUrl); // Generate preview
+      setImagePreview(dataUrl);
     }
   };
 
