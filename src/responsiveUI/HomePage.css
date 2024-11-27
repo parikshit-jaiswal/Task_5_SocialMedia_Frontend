@@ -15,7 +15,11 @@
 }
 
 @media (width<=640px) {
-    .leftSidebar {
+    /* .leftSidebar {
         display: none;
+    } */
+
+    .navbar {
+        padding-block: 10px;
     }
 }

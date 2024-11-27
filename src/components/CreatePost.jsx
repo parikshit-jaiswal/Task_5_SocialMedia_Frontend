@@ -154,7 +154,7 @@ const CreatePost = ({ open, setOpen }) => {
           placeholder="Write a caption..."
         />
 
-        <div className="flex justify-center">
+        <div className="flex justify-center ">
           <ReactCrop
             crop={crop}
             onChange={(pixelCrop) => setCrop(pixelCrop)}
@@ -163,7 +163,7 @@ const CreatePost = ({ open, setOpen }) => {
             aspect={ASPECT_RATIO}
             maxHeight={MIN_DIMENSION}
           >
-            <div className={`flex justify-center ${imagePreview ? 'max-h-[50vh] w-[full]' : ''}`}>
+            <div className={`flex justify-center ${imagePreview ? 'max-h-[50vh] phone:w-full max-w-[50rem]' : ''}`}>
 
               <img className='' src={imagePreview} onLoad={onImageLoad} ref={imageRef} />
             </div>

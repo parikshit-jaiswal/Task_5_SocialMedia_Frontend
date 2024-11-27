@@ -81,7 +81,7 @@ export default function PostCard({ post }) {
 
 
   return (
-    <div className=" postCard bg-[#282828] rounded-xl border-2 border-[#bbacf2] text-gray-200 sm:w-[85%] md:min-w-[30rem] h-fit">
+    <div className=" postCard bg-[#282828] rounded-xl border-2 border-[#bbacf2] text-gray-200 sm:w-[85%] md:min-w-[30rem] h-fit z-10">
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -120,11 +120,11 @@ export default function PostCard({ post }) {
       </div>
 
       {/* Image */}
-      <div className="relative w-full   px-0 pb-4 z-10">
+      <div className="w-full px-0 pb-4 z-10">
         <img
           src={post?.image?.url}
           alt="Post content"
-          className="w-full h-[55%] object-cover rounded-xl"
+          className="w-full h-[55%] object-cover rounded-xl z-10"
         />
       </div>
 

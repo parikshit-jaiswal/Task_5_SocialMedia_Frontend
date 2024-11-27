@@ -48,7 +48,7 @@ const Posts = () => {
     const { posts } = useSelector(store => store.post);
     return (
         <div className="min-h-screen bg-[#111111]">
-            <div className="pt-28">
+            <div className="phone:pt-28 pt-20 pb-24 phone:pb-1">
                 <main className="postsContainer sm:ml-40 p-5">
                     <div className="sm:w-4/5 mx-auto space-y-4">
                         {posts.map((post, index) => (

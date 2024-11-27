@@ -35,7 +35,7 @@ const Navbar = () => {
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
         <div className="flex items-center flex-shrink-0">
-          <h1 className="text-[#bbacf2] font-baloo font-extrabold text-7xl pt-5">
+          <h1 className="text-[#bbacf2] font-baloo font-extrabold phone:text-7xl text-4xl phone:pt-5">
             hola'
           </h1>
         </div>
@@ -59,12 +59,12 @@ const Navbar = () => {
           <button className="text-white hover:text-[#bbacf2] transition-colors">
             <Bell className="w-6 h-6" />
           </button>
-          <button className="text-white hover:text-[#bbacf2] transition-colors">
+          <button className="text-white hover:text-[#bbacf2] transition-colors phone:block hidden">
             <MapPin className="w-6 h-6" />
           </button>
 
           {/* User Profile */}
-          <div className="flex items-center space-x-3 cursor-pointer">
+          <div className="phone:flex items-center space-x-3 cursor-pointer hidden">
             <Link to='/profile'>
               <img
                 src={user ? user?.profileImage.url : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
