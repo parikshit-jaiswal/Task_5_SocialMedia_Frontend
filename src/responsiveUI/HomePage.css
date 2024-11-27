@@ -1,0 +1,21 @@
+@media (width<=1260px) {
+
+    .rightSidebar {
+        display: none;
+    }
+
+    .postsContainer {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .postCard {
+        min-width: none;
+    }
+}
+
+@media (width<=640px) {
+    .leftSidebar {
+        display: none;
+    }
+}

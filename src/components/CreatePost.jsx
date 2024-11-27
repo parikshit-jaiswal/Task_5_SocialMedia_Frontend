@@ -163,7 +163,7 @@ const CreatePost = ({ open, setOpen }) => {
             aspect={ASPECT_RATIO}
             maxHeight={MIN_DIMENSION}
           >
-            <div className={`flex justify-center ${imagePreview ? 'h-[50vh]' : ''}`}>
+            <div className={`flex justify-center ${imagePreview ? 'max-h-[50vh] w-[full]' : ''}`}>
 
               <img className='' src={imagePreview} onLoad={onImageLoad} ref={imageRef} />
             </div>

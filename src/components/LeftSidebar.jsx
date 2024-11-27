@@ -30,7 +30,7 @@ const LeftSidebar = () => {
   ];
 
   return (
-    <div className="fixed left-6 top-[150px] h-[389px] w-20 bg-[#111111] flex flex-col items-center py-6 opacity-100">
+    <div className=" leftSidebar fixed left-6 top-[150px] h-[389px] w-20 bg-[#111111] flex flex-col items-center py-6 opacity-100">
       <div className="flex flex-col gap-[30px]">
         {menuItems.map((item) => (
           <button

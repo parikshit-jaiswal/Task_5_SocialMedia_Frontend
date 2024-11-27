@@ -6,7 +6,7 @@ import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 
 function RightSidebar() {
     return (
-        <div className="flex justify-end pr-8">
+        <div className=" rightSidebar flex justify-end pr-8">
             <div className='w-[28vw] pr-7 mt-[10rem]'>
                 <div><p className=' flex justify-center items-center bg-[#bbacf2] gap-1 text-xl font-semibold rounded-lg p-2 active:bg-[#a192e3] cursor-pointer'>GO LIVE <Radio size={32} /></p></div>
                 <div className="h-fit w-full border-[5px] rounded-3xl border-[#bbacf2] mt-5 pb-5">
