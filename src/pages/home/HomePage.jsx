@@ -10,8 +10,10 @@ const HomePage = () => {
     useGetSuggestedUsers();
     return (
         <div className='flex'>
-            <div className='flex-grow'>
-                <Feed />
+            <div className='sm:flex-grow'>
+                <div className="sm:ml-[10%]">
+                    <Feed />
+                </div>
                 <Outlet />
             </div>
             <RightSidebar />

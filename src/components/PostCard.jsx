@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Heart, MessageCircle, Share2 } from 'lucide-react';
 import { Copy } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -18,6 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
 import axios from 'axios';
 import { setPosts } from '@/redux/postSlice';
+import '@/responsiveUI/HomePage.css'
 
 export default function PostCard({ post }) {
   const { user } = useSelector(store => store.auth)
@@ -81,7 +81,7 @@ export default function PostCard({ post }) {
 
 
   return (
-    <div className="bg-[#282828] rounded-xl overflow-hidden border-2 border-[#bbacf2] text-gray-200 w-full">
+    <div className=" postCard bg-[#282828] rounded-xl border-2 border-[#bbacf2] text-gray-200 sm:w-[85%] md:min-w-[30rem] h-fit z-10">
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">
@@ -120,11 +120,11 @@ export default function PostCard({ post }) {
       </div>
 
       {/* Image */}
-      <div className="relative w-full  px-0 pb-4 z-10">
+      <div className="w-full px-0 pb-4 z-10">
         <img
           src={post?.image?.url}
           alt="Post content"
-          className="w-full h-[55vh] object-cover rounded-xl"
+          className="w-full h-[55%] object-cover rounded-xl z-10"
         />
       </div>
 

@@ -44,7 +44,7 @@ const CreatePost = ({ open, setOpen }) => {
     setCrop(centeredCrop);
   };
 
-  // Handle file input changes
+
   const fileChangeHandler = async (e) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -54,7 +54,7 @@ const CreatePost = ({ open, setOpen }) => {
     }
   };
 
-  // Get the cropped image as a Blob
+
   const getCroppedImg = async (image, crop) => {
     if (!crop || !image) return null;
 
@@ -154,7 +154,7 @@ const CreatePost = ({ open, setOpen }) => {
           placeholder="Write a caption..."
         />
 
-        <div className="flex justify-center">
+        <div className="flex justify-center ">
           <ReactCrop
             crop={crop}
             onChange={(pixelCrop) => setCrop(pixelCrop)}
@@ -163,7 +163,7 @@ const CreatePost = ({ open, setOpen }) => {
             aspect={ASPECT_RATIO}
             maxHeight={MIN_DIMENSION}
           >
-            <div className={`flex justify-center ${imagePreview ? 'h-[50vh]' : ''}`}>
+            <div className={`flex justify-center ${imagePreview ? 'max-h-[50vh] phone:w-full max-w-[50rem]' : ''}`}>
 
               <img className='' src={imagePreview} onLoad={onImageLoad} ref={imageRef} />
             </div>
