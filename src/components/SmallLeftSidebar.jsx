@@ -4,6 +4,7 @@ import CreatePost from './CreatePost';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { v4 as uuidv4 } from 'uuid';
 
 const SmallLeftSidebar = () => {
     const [open, setOpen] = useState(false);
@@ -44,7 +45,7 @@ const SmallLeftSidebar = () => {
                         <>
                             {item.label !== 'profile' ?
                                 <button
-                                    key={item.label}
+                                    key={uuidv4()}
                                     onClick={() => sidebarHandler(item.label)}
                                     className={`w-full flex flex-col items-center justify-center transition-all duration-200 group
                             ${isActive ? 'text-[#bbacf2]' : 'text-white hover:text-[#bbacf2]'}`}
@@ -55,7 +56,7 @@ const SmallLeftSidebar = () => {
                                     />
                                     <span className="text-xs font-medium">{item.label}</span>
                                 </button> :
-                                <div className="mt-5 flex flex-col items-center mx-2 mr-5">
+                                <div key={uuidv4()} className="mt-5 flex flex-col items-center mx-2 mr-5">
                                     <Link to='/profile'>
                                         <img
                                             src={user ? user?.profileImage.url : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
@@ -73,7 +74,7 @@ const SmallLeftSidebar = () => {
                 })}
             </div>
             <CreatePost open={open} setOpen={setOpen} />
-        </div>
+        </div >
     );
 };
 
