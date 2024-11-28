@@ -37,7 +37,7 @@ const SmallLeftSidebar = () => {
     ];
 
     return (
-        <div className="leftSidebar fixed bottom-[-15px] h-[6rem] w-[100%] bg-black flex justify-evenly opacity-100 px-1">
+        <div className="leftSidebar fixed bottom-[-15px] h-[6rem] w-[100%] bg-black flex justify-evenly opacity-100 px-1 z-50">
             <div className="flex justify-between w-full ">
                 {menuItems.map((item) => {
                     const isActive = location.pathname === item.path || (item.label === 'Create' && open);

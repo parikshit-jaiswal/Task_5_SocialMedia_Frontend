@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Home, MessageCircle, Compass, PlusCircle, Bell } from 'lucide-react';
+import { Home, MessageCircle, Compass, PlusCircle, Bell, Settings } from 'lucide-react';
 import CreatePost from './CreatePost';
 import { useLocation, useNavigate } from 'react-router-dom';
 
@@ -28,10 +28,11 @@ const LeftSidebar = () => {
     { icon: Compass, label: 'Explore', path: '/explore' },
     { icon: PlusCircle, label: 'Create', path: '#' }, // Create doesn't have a specific route
     { icon: Bell, label: 'Notifications', path: '/notifications' },
+    { icon: Settings, label: 'Settings', path: '/notifications' },
   ];
 
   return (
-    <div className="leftSidebar fixed left-6 top-[150px] h-[389px] w-20 bg-[#111111] phone:flex hidden flex-col items-center py-6 opacity-100">
+    <div className="leftSidebar leftSidebarVertical fixed left-18 pt-16 top-[120px] h-[100vh] phone:w-[15rem] bg-black phone:flex hidden flex-col items-center py-6 opacity-100 z-50">
       <div className="flex flex-col gap-[30px]">
         {menuItems.map((item) => {
           const isActive = location.pathname === item.path || (item.label === 'Create' && open);
@@ -40,14 +41,14 @@ const LeftSidebar = () => {
             <button
               key={item.label}
               onClick={() => sidebarHandler(item.label)}
-              className={`w-full flex flex-col items-center justify-center transition-all duration-200 group
+              className={`w-full flex items-center justify-start transition-all duration-200 group
                 ${isActive ? 'text-[#bbacf2]' : 'text-white hover:text-[#bbacf2]'}`}
             >
               <item.icon
-                className={`w-7 h-7 mb-1 transition-all duration-200
+                className={`w-7 h-7 mb-1 
                   ${isActive ? 'scale-110' : 'group-hover:scale-110'}`}
               />
-              <span className="text-xs font-medium">{item.label}</span>
+              <p className="text-xl font-medium ml-2 leftSidebarLabel">{item.label}</p>
             </button>
           );
         })}
