@@ -6,7 +6,8 @@ module.exports = {
 		extend: {
 			screens: {
 				xs: '360px',
-				phone: '640px'
+				phone: '641px',
+				mid: '1260px'
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

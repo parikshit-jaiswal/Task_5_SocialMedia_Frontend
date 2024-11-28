@@ -81,7 +81,7 @@ export default function PostCard({ post }) {
 
 
   return (
-    <div className=" postCard bg-[#282828] rounded-xl border-2 border-[#bbacf2] text-gray-200 sm:w-[85%] md:min-w-[30rem] h-fit z-10">
+    <div className=" postCard bg-[#282828] rounded-xl border-2 border-[#bbacf2] text-gray-200  md:min-w-[30rem] sm:w-full h-fit z-0">
       {/* Header */}
       <div className="p-4 flex items-center justify-between">
         <div className="flex items-center gap-3">

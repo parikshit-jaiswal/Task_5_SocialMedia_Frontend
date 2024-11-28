@@ -1,5 +1,4 @@
 @media (width<=1260px) {
-
     .rightSidebar {
         display: none;
     }
@@ -11,6 +10,14 @@
 
     .postCard {
         min-width: none;
+    }
+
+    .leftSidebarLabel {
+        display: none;
+    }
+
+    .leftSidebarVertical {
+        width: 10%;
     }
 }
 

@@ -27,7 +27,8 @@ const buttonVariants = cva(
         lg: "h-10 rounded-md px-8",
         icon: "h-9 w-9",
         full: "h-12 w-full rounded-lg",
-        submit: "h-9 w-[75%]"
+        submit: "h-9 w-[75%]",
+        pill: "h-9 px-4 py-2 rounded-3xl"
       },
     },
     defaultVariants: {

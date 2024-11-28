@@ -1,0 +1,38 @@
+@media (width<=1400px) {
+  .profileRightSidebar {
+    display: none;
+  }
+
+  .profile {
+    width: 75vw;
+    margin-right: 5rem;
+    margin-left: 18rem;
+  }
+}
+
+@media (width<=1260px) {
+  .profile {
+    margin-left: 12%;
+    width: 85%;
+  }
+
+  .profileActivity {
+    margin-left: 0rem;
+  }
+}
+
+@media (width<=640px) {
+  .profile {
+    margin-left: 0;
+    margin-top: 8rem;
+    width: 100%;
+  }
+
+  .profileContainer {
+    padding-inline: 1rem;
+  }
+
+  /* .profileActivity {
+    padding-left: -2rem;
+  } */
+}
