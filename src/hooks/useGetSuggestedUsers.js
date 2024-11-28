@@ -9,10 +9,10 @@ const useGetSuggestedUsers = () => {
     useEffect(() => {
         const fetchSuggestedUsers = async () => {
             try {
-                const res = await axios.get('https://snapverse-6nqx.onrender.com/home/available-people', { withCredentials: true });
+                const res = await axios.get('https://snapverse-6nqx.onrender.com/home/suggested/users', { withCredentials: true });
                 if (res) {
-                    dispatch(setSuggestedUsers(res.data.AllFollowings));
-                    // console.log(res)
+                    dispatch(setSuggestedUsers(res.data));
+                    // console.log(res.data)
                 }
             } catch (error) {
                 console.log(error);
