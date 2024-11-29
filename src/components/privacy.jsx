@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FaArrowLeft } from "react-icons/fa"; 
+import { FaArrowLeft } from "react-icons/fa";
 
 const Privacy = () => {
   const [isPrivate, setIsPrivate] = useState(false);
@@ -10,10 +10,10 @@ const Privacy = () => {
 
   return (
     <div
-      className="w-[420px] h-[172px] text-white rounded-lg shadow-lg p-4 flex flex-col justify-between"
+      className="w-[420px] h-[150px] text-white rounded-lg shadow-lg p-4 flex flex-col justify-between"
       style={{
         fontFamily: "Helvetica, sans-serif",
-        backgroundColor: "#2B2A2A",
+        backgroundColor: "transparent",
       }}
     >
       {/* Header Section */}
@@ -40,7 +40,7 @@ const Privacy = () => {
       </div>
 
       {/* Private Account Toggle */}
-      <div className="flex justify-between items-center mt-2"> 
+      <div className="flex justify-between items-center mt-2">
         <span
           className="font-medium"
           style={{

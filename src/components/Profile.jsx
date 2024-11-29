@@ -4,8 +4,11 @@ import { Separator } from './ui/separator';
 import RightSidebar from './RightSidebar';
 import useGetUserProfile from '@/hooks/useGetUserProfile';
 import { useSelector } from 'react-redux';
+import { Button } from './ui/button';
+import { ProfileSettings } from './ProfileSettings';
 
 function Profile({ user, posts }) {
+  const [open, setOpen] = useState(false);
   const profileData = {
     name: 'Richard Wright',
     bio: "I'm delighted to introduce myself as a professional musician",
@@ -72,9 +75,10 @@ function Profile({ user, posts }) {
             </div>
 
             {/* setting button */}
-            <button className="bg-transparent border border-[#bbacf2] bg-[#1c1c1c] text-white px-4 py-1.5 rounded-full text-sm font-bold">
-              Profile settings
-            </button>
+            <div className="" onClick={() => setOpen(true)}>
+              <Button variant="outline" size="pill">Profile Settings</Button>
+            </div>
+            <ProfileSettings open={open} setOpen={setOpen} />
           </div>
         </div>
       </div>

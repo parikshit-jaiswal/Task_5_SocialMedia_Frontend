@@ -1,23 +1,12 @@
-import React from 'react';
-import Navbar from '@/components/Navbar';
-import Sidebar from '@/components/Sidebar';
+import React from 'react'
+
+function SearchPage() {
+  return (
+    <div>SearchPage</div>
+  )
+}
+
+export default SearchPage
 
 
-function ExplorePage() {
-    return (
-      <div className="min-h-screen bg-[#111111]">
-        <Navbar />
-        <div className="pt-28">
-          <Sidebar />
-        </div>
-      </div>
-  
-  
-  
-    );
-  }
-  
-  export default ExplorePage;
-  
-  
-  
+

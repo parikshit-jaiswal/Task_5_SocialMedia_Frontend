@@ -100,7 +100,7 @@ export default function PostCard({ post }) {
           </DialogTrigger>
           <DialogContent className="flex flex-col items-center text-sm text-center">
             {
-              < Button variant='ghost' className="cursor-pointer w-fit text-[#ED4956] font-bold">Unfollow</Button>
+              < Button variant='ghost' className="cursor-pointer w-fit text-[#ED4956] font-bold">Follow</Button>
 
             }
             <Button variant='ghost' className="cursor-pointer w-fit">Add to favorites</Button>
@@ -146,7 +146,6 @@ export default function PostCard({ post }) {
             <MessageCircle size={24} />
             <span className="text-sm">{post?.commentsCount}</span>
           </div>
-
           <CommentDialog open={open} post={post} setOpen={setOpen} />
 
 
