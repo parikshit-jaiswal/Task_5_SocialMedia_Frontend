@@ -26,8 +26,7 @@ const CreatePost = ({ open, setOpen }) => {
   const dispatch = useDispatch();
 
   const MIN_DIMENSION = 500;
-  const ASPECT_RATIO = 1.2;
-
+  const ASPECT_RATIO = 1;
 
   const onImageLoad = (e) => {
     const { width, height } = e.currentTarget;
@@ -44,7 +43,6 @@ const CreatePost = ({ open, setOpen }) => {
     setCrop(centeredCrop);
   };
 
-
   const fileChangeHandler = async (e) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -53,7 +51,6 @@ const CreatePost = ({ open, setOpen }) => {
       setImagePreview(dataUrl);
     }
   };
-
 
   const getCroppedImg = async (image, crop) => {
     if (!crop || !image) return null;
@@ -88,11 +85,10 @@ const CreatePost = ({ open, setOpen }) => {
           resolve(blob);
         },
         'image/jpeg',
-        1
+        1 // Ensure this is 1 for the highest quality
       );
     });
   };
-
 
   const createPostHandler = async () => {
     const formData = new FormData();
@@ -121,8 +117,8 @@ const CreatePost = ({ open, setOpen }) => {
         dispatch(setPosts([res.data, ...posts]));
         toast.success('Post Created successfully');
         setOpen(false);
-        setCaption("")
-        setImagePreview("")
+        setCaption('');
+        setImagePreview('');
       }
     } catch (error) {
       console.error('Error creating post:', error);
@@ -164,7 +160,6 @@ const CreatePost = ({ open, setOpen }) => {
             maxHeight={MIN_DIMENSION}
           >
             <div className={`flex justify-center ${imagePreview ? 'max-h-[50vh] phone:w-full max-w-[50rem]' : ''}`}>
-
               <img className='' src={imagePreview} onLoad={onImageLoad} ref={imageRef} />
             </div>
           </ReactCrop>

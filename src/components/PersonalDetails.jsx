@@ -3,7 +3,7 @@ import { IoArrowBack } from 'react-icons/io5';
 
 function PersonalDetails() {
   return (
-    <div className="min-h-screen bg-zinc-900 text-white p-6">
+    <div className=" bg-transparent text-white">
       {/* Header Section */}
       <div className="mb-6">
         <button className="p-2 hover:bg-zinc-800 rounded-full transition-colors">
@@ -14,10 +14,10 @@ function PersonalDetails() {
           Hola uses this information to verify your identity and to keep our community safe. You decide what personal details you make visible to others.
         </p>
       </div>
-      
+
       {/* Details Section */}
-      <div 
-        style={{ backgroundColor: '#4b4a4a', borderColor: '#111111', borderWidth: '1px' }} 
+      <div
+        style={{ backgroundColor: '#4b4a4a', borderColor: '#111111', borderWidth: '1px' }}
         className="rounded-xl p-6 space-y-6 border"
       >
         {/* Contact Info */}

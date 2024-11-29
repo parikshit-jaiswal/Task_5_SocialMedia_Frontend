@@ -15,20 +15,21 @@ const LeftSidebar = () => {
       navigate('/chat');
     } else if (textType === 'Home') {
       navigate('/');
+    } else if (textType === 'Settings') {
+      navigate('/setting');
     } else if (textType === 'Explore') {
       // navigate('/explore');
     } else if (textType === 'Notifications') {
       // navigate('/notifications');
-    }
-  };
+    };
+  }
 
   const menuItems = [
     { icon: Home, label: 'Home', path: '/' },
     { icon: MessageCircle, label: 'Messages', path: '/chat' },
     { icon: Compass, label: 'Explore', path: '/explore' },
     { icon: PlusCircle, label: 'Create', path: '#' }, // Create doesn't have a specific route
-    { icon: Bell, label: 'Notifications', path: '/notifications' },
-    { icon: Settings, label: 'Settings', path: '/notifications' },
+    { icon: Settings, label: 'Settings', path: '/setting' },
   ];
 
   return (

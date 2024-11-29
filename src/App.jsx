@@ -13,6 +13,11 @@ import { useDispatch, useSelector } from 'react-redux'
 import { setOnlineUsers } from './redux/chatSlice'
 import { setSocket } from './redux/socketSlice'
 import { useEffect } from 'react'
+import ExplorePage from './pages/ExplorePage'
+import Privacy from './components/privacy'
+import PersonalDetails from './components/PersonalDetails'
+import PasswordSecurity from './components/PasswordSecurity'
+import SettingsPage from './pages/SettingsPage'
 
 function App() {
 
@@ -53,6 +58,7 @@ function App() {
           <Route index element={<ProtectedRoutes><HomePage /></ProtectedRoutes>} />
           <Route path='/chat' element={<ProtectedRoutes><ChatPage /></ProtectedRoutes>} />
           <Route path="/profile" element={<ProtectedRoutes><ProfilePage /></ProtectedRoutes>} />
+          <Route path="/setting" element={<ProtectedRoutes><SettingsPage /></ProtectedRoutes>} />
         </Route>
         <Route path='/verify/email' element={<VerifyEmailPage />} />
         <Route path="/login" element={<LoginPage />} />

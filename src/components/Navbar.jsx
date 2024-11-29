@@ -12,21 +12,24 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
-import { Button } from "@/components/ui/button"
+
 import { toast } from 'sonner';
 import { setAuthUser } from '@/redux/authSlice';
 import { setPosts, setSelectedPost } from '@/redux/postSlice';
+import Notification from './Notification';
+import { Button } from "@/components/ui/button"
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+  DialogTrigger,
+} from "@/components/ui/dialog"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+
 
 const Navbar = () => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -68,9 +71,17 @@ const Navbar = () => {
 
         {/* Right Section */}
         <div className="flex items-center space-x-6 flex-shrink-0">
-          <button className="text-white hover:text-[#bbacf2] transition-colors">
-            <Bell className="w-6 h-6" />
-          </button>
+
+          <Dialog>
+            <DialogTrigger asChild>
+              <button className="text-white hover:text-[#bbacf2] transition-colors">
+                <Bell className="w-6 h-6" />
+              </button>
+            </DialogTrigger>
+            <DialogContent className="">
+              <Notification />
+            </DialogContent>
+          </Dialog>
           <button className="text-white hover:text-[#bbacf2] transition-colors phone:block hidden">
             <MapPin className="w-6 h-6" />
           </button>

@@ -20,6 +20,7 @@ const buttonVariants = cva(
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         purple: "bg-[#bbacf2] text-black font-semibold text-lg shadow hover:bg-primary/90",
+        white: "bg-white text-black font-semibold text-lg shadow hover:bg-primary/90 "
       },
       size: {
         default: "h-9 px-4 py-2",
@@ -28,7 +29,8 @@ const buttonVariants = cva(
         icon: "h-9 w-9",
         full: "h-12 w-full rounded-lg",
         submit: "h-9 w-[75%]",
-        pill: "h-9 px-4 py-2 rounded-3xl"
+        pill: "h-9 px-4 py-2 rounded-3xl",
+        pillOutline: "h-9 px-4 py-2 rounded-3xl"
       },
     },
     defaultVariants: {
