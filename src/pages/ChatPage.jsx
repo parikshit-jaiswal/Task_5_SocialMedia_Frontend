@@ -6,12 +6,12 @@ import { setSelectedUser } from '@/redux/authSlice';
 import { setMessages } from '@/redux/chatSlice';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
+import Navbar from '@/components/Navbar';
+import ChatSidebar from '@/components/ChatSidebar';
 
 
 function ChatPage() {
     const { user, suggestedUsers, selectedUser } = useSelector(store => store.auth);
-    const [textMessage, setTextMessage] = useState("");
-    const { messages } = useSelector(store => store.chat)
     const dispatch = useDispatch();
 
 
@@ -25,9 +25,7 @@ function ChatPage() {
             });
 
             if (res && res.data) {
-                console.log(res.data);
                 dispatch(setMessages(res.data));
-                setTextMessage("");
             }
         } catch (error) {
             if (error.response) {
@@ -40,30 +38,15 @@ function ChatPage() {
 
     return (
         <>
-            <div className=" flex">
-                <div className="pl-[8rem] overflow-scroll">
-                    <div className="reciever mt-[14vh] w-[22vw] h-[86%]  border-x-[0.2px] border-[#bbacf26d]">
-                        <div className="h-[34.5rem]">
-                            <div className="text-lg font-semibold pt-[2.5rem] fixed bg-[#111] pb-5 w-[20.8vw] z-40 px-5">Messages</div>
-                            {suggestedUsers.length !== 0 ?
-                                <div className="pt-[5.5rem]">
-                                    {suggestedUsers.map((suggestedUser) => {
-                                        return (
-                                            <ChatUser key={uuidv4()} suggestedUser={suggestedUser} fetchAllMessages={fetchAllMessages} />
-                                        )
-                                    })}
-                                </div>
-                                :
-                                <div className="pt-[7.5rem] pl-5 text-red-600">No Followers!!</div>
-                            }
-                        </div>
-                    </div>
+            <Navbar />
+            <div className="flex">
+                <div className="w-[35%] border-r-[1px] border-[#bbacf2]  bg-black mt-[6rem]">
+                    <ChatSidebar selectedUser={selectedUser} fetchAllMessages={fetchAllMessages} />
                 </div>
-                <div className="">
+                <div className="w-[65%]">
                     <MessageBox selectedUser={selectedUser} fetchAllMessages={fetchAllMessages} />
                 </div>
             </div>
-
         </>
 
     )
