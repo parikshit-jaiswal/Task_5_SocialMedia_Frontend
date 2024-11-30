@@ -3,6 +3,7 @@ import authSlice from "./authSlice.js";
 import postSlice from "./postSlice.js";
 import chatSlice from './chatSlice.js'
 import socketSlice from './socketSlice.js'
+import commentSlice from './commentSlice.js'
 
 import {
     persistReducer,
@@ -27,6 +28,7 @@ const rootReducer = combineReducers({
     post: postSlice,
     socketio: socketSlice,
     chat: chatSlice,
+    comment: commentSlice,
 
 })
 

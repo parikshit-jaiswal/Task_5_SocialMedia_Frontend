@@ -37,12 +37,13 @@ const SmallLeftSidebar = () => {
     ];
 
     return (
-        <div className="leftSidebar fixed bottom-[-15px] h-[6rem] w-[100%] bg-black flex justify-evenly opacity-100 px-1 z-50">
-            <div className="flex justify-between w-full ">
+        <div className="leftSidebar fixed bottom-[-15px] h-[5rem] w-[100%] bg-black flex justify-evenly opacity-100 px-1 z-50 mb-2">
+            <div key={uuidv4()}
+                className="flex justify-between w-full items-center ml-3">
                 {menuItems.map((item) => {
                     const isActive = location.pathname === item.path || (item.label === 'Create' && open);
                     return (
-                        <>
+                        <div key={uuidv4()}>
                             {item.label !== 'profile' ?
                                 <button
                                     key={uuidv4()}
@@ -56,7 +57,7 @@ const SmallLeftSidebar = () => {
                                     />
                                     <span className="text-xs font-medium">{item.label}</span>
                                 </button> :
-                                <div key={uuidv4()} className="mt-5 flex flex-col items-center mx-2 mr-5">
+                                <div key={uuidv4()} className=" flex flex-col items-center mx-2 mr-4">
                                     <Link to='/profile'>
                                         <img
                                             src={user ? user?.profileImage.url : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
@@ -68,7 +69,7 @@ const SmallLeftSidebar = () => {
                                 </div>
 
                             }
-                        </>
+                        </div>
                     );
 
                 })}

@@ -16,8 +16,9 @@ import CommentDialog from './CommentDialog';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'sonner';
 import axios from 'axios';
-import { setPosts } from '@/redux/postSlice';
+import { setPosts, setSelectedPost } from '@/redux/postSlice';
 import '@/responsiveUI/HomePage.css'
+import { setComments } from '@/redux/commentSlice';
 
 export default function PostCard({ post }) {
   const { user } = useSelector(store => store.auth)
@@ -26,6 +27,7 @@ export default function PostCard({ post }) {
   const [postLike, setPostLike] = useState(post.likesCount);
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState(false)
 
 
   const handleLike = () => {
@@ -46,7 +48,6 @@ export default function PostCard({ post }) {
       if (res) {
 
         setLiked(!liked);
-        // apne post ko update krunga
         const updatedPostData = posts.map(p =>
           p._id === post._id
             ? {
@@ -67,6 +68,7 @@ export default function PostCard({ post }) {
 
   const deletePostHandler = async () => {
     try {
+      setLoading(true)
       const res = await axios.delete(`https://snapverse-6nqx.onrender.com/posts/${post._id}`, { withCredentials: true })
       if (res) {
         const updatedPostData = posts.filter((postItem) => postItem?._id !== post._id);
@@ -77,6 +79,33 @@ export default function PostCard({ post }) {
       console.log(error);
       toast.error(error.response.data.error);
     }
+    finally {
+      setLoading(false)
+    }
+  }
+
+  const getAllComments = async (id) => {
+    try {
+      const res = await axios.get(`https://snapverse-6nqx.onrender.com/posts/${id}/comments`, {
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        withCredentials: true,
+      });
+
+      if (res.data) {
+        dispatch(setComments(res.data.comments))
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  const CommentDialogHandler = () => {
+    setOpen(true);
+    dispatch(setSelectedPost(post))
+    dispatch(setComments([]))
+    getAllComments(post?._id);
   }
 
 
@@ -142,11 +171,11 @@ export default function PostCard({ post }) {
             <span className="text-sm">{postLike}</span>
           </button>
 
-          <div onClick={() => setOpen(true)} className="flex items-center gap-2 hover:text-gray-200">
+          <div onClick={CommentDialogHandler} className="flex items-center gap-2 hover:text-gray-200">
             <MessageCircle size={24} />
             <span className="text-sm">{post?.commentsCount}</span>
           </div>
-          <CommentDialog open={open} post={post} setOpen={setOpen} />
+          <CommentDialog open={open} setOpen={setOpen} loading={loading} />
 
 
           {/* Share popup */}
@@ -172,7 +201,7 @@ export default function PostCard({ post }) {
                   </Label>
                   <Input
                     id="link"
-                    defaultValue="https://ui.shadcn.com/docs/installation"
+                    defaultValue="https://github.com/parikshit-jaiswal"
                     readOnly
                   />
                 </div>

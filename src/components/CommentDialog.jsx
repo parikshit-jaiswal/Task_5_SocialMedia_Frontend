@@ -1,21 +1,25 @@
 import React, { useEffect, useState } from 'react'
 import { Dialog, DialogContent, DialogTrigger } from './ui/dialog'
-import { MoreHorizontal } from 'lucide-react'
+import { Loader2, MoreHorizontal } from 'lucide-react'
 import { Button } from './ui/button'
 import { useDispatch, useSelector } from 'react-redux'
+import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { Link } from 'react-router-dom'
+import Comment from './Comments'
+import axios from 'axios'
+import { setPosts, setSelectedPost } from '@/redux/postSlice'
+import { toast } from 'sonner'
+import { setComments } from '@/redux/commentSlice'
 
 
-const CommentDialog = ({ open, setOpen, post }) => {
+const CommentDialog = ({ open, setOpen, loading }) => {
     const [text, setText] = useState("");
     const { selectedPost, posts } = useSelector(store => store.post);
-    const [comment, setComment] = useState([]);
+    const { user } = useSelector(store => store.auth);
+    const { comments } = useSelector(store => store.comment)
+    const [sending, setSending] = useState(false)
     const dispatch = useDispatch();
 
-    // useEffect(() => {
-    //     if (selectedPost) {
-    //         setComment(selectedPost.comments);
-    //     }
-    // }, [selectedPost]);
 
     const changeEventHandler = (e) => {
         const inputText = e.target.value;
@@ -26,30 +30,47 @@ const CommentDialog = ({ open, setOpen, post }) => {
         }
     }
 
-    // const sendMessageHandler = async () => {
-    //     try {
-    //         const res = await axios.post(`https://snapverse-6nqx.onrender.com/posts/${post?._id}/comments`, { text }, {
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             withCredentials: true
-    //         });
 
-    //         if (res.data) {
-    //             const updatedCommentData = [...comment, res.data.comment];
-    //             setComment(updatedCommentData);
 
-    //             const updatedPostData = posts.map(p =>
-    //                 p._id === selectedPost._id ? { ...p, comments: updatedCommentData } : p
-    //             );
-    //             dispatch(setPosts(updatedPostData));
-    //             toast.success(res.data.message);
-    //             setText("");
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
+    const sendMessageHandler = async () => {
+        try {
+            setSending(true)
+            const res = await axios.post(`https://snapverse-6nqx.onrender.com/posts/${selectedPost?._id}/comments`, { text }, {
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                withCredentials: true
+            });
+
+            if (res.data) {
+                const updatedCommentData = [{ text, user }, ...comments];
+                dispatch(setComments(updatedCommentData));
+                toast.success("Comment Added");
+                setText("");
+            }
+        } catch (error) {
+            console.log(error);
+        } finally {
+            setSending(false)
+        }
+    }
+
+    const deleteComment = async () => {
+        try {
+            const res = await axios.get(`https://snapverse-6nqx.onrender.com/posts/${id}/comments`, {
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                withCredentials: true,
+            });
+
+            if (res.data) {
+                dispatch(setComments(res.data.comments))
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }
 
     return (
         <Dialog open={open} >
@@ -57,23 +78,22 @@ const CommentDialog = ({ open, setOpen, post }) => {
                 <div className='flex flex-1'>
                     <div className='w-1/2'>
                         <img
-                            src={post?.image?.url}
+                            src={selectedPost?.image?.url}
                             alt="post_img"
                             className='w-full h-[80vh] object-cover rounded-l-lg'
                         />
                     </div>
                     <div className='w-1/2 flex flex-col justify-between'>
-                        <div className='flex items-center justify-between p-4'>
-                            <div className='flex gap-3 items-center'>
-                                {/* <Link>
+                        <div className='flex items-center justify-between px-4 mt-3 mb-[-0.8rem]'>
+                            <div className='flex gap-3 items-center ml-5'>
+                                <Link>
                                     <Avatar>
-                                        <AvatarImage src={selectedPost?.author?.profilePicture} />
+                                        <AvatarImage src={selectedPost?.user?.profileImage.url} />
                                         <AvatarFallback>CN</AvatarFallback>
                                     </Avatar>
-                                </Link> */}
+                                </Link>
                                 <div>
-                                    {/* <Link className='font-semibold text-xs'>{selectedPost?.author?.username}</Link> */}
-                                    {/* <span className='text-gray-600 text-sm'>Bio here...</span> */}
+                                    <Link className=' text-lg'>{selectedPost?.user?.name}</Link>
                                 </div>
                             </div>
 
@@ -91,16 +111,22 @@ const CommentDialog = ({ open, setOpen, post }) => {
                                 </DialogContent>
                             </Dialog>
                         </div>
-                        <hr />
-                        <div className='flex-1 overflow-y-auto max-h-96 p-4'>
-                            {
-                                comment.map((comment) => <Comment key={comment._id} comment={comment} />)
-                            }
+                        <div className=" ml-10 mb-[-1rem] text-xl mt-5">"{selectedPost?.caption}"</div>
+
+                        <div className='flex-col-reverse flex-1 overflow-y-scroll max-h-[27.5rem] ml-5 mt-5 p-4'>
+                            {loading ? <div className="">Loading..</div> :
+                                (
+                                    comments.map((comment) => <Comment key={comment?._id} comment={comment} />)
+                                )}
                         </div>
                         <div className='p-4'>
                             <div className='flex items-center gap-2'>
-                                <input type="text" value={text} onChange={changeEventHandler} placeholder='Add a comment...' className='w-full h-9 outline-none border border-gray-300 p-2 text-black rounded' />
-                                <Button disabled={!text.trim()} variant="outline">Send</Button>
+                                <input type="text" value={text} onChange={changeEventHandler} placeholder='Add a comment...' className='w-full h-9 outline-none border bg-transparent border-[#bbacf2] p-2 text-[#bbacf2] rounded' />
+                                {!sending ?
+                                    <Button disabled={!text.trim()} variant="purple" onClick={sendMessageHandler} >Add</Button>
+                                    :
+                                    <Button disabled variant="outline">Adding <Loader2 className='animate-spin' /></Button>
+                                }
                             </div>
                         </div>
                     </div>
