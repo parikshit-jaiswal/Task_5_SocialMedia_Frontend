@@ -9,6 +9,7 @@ import UserPost from '@/components/UserPost';
 import { useSelector } from 'react-redux';
 import useGetUserProfile from '@/hooks/useGetUserProfile';
 import ProfileActivity from '@/components/ProfileActivity';
+import SmallLeftSidebar from '@/components/SmallLeftSidebar';
 
 
 function ProfilePage() {
@@ -25,6 +26,9 @@ function ProfilePage() {
       <div className='flex'>
         <Navbar />
         <LeftSidebar />
+        <div className="phone:hidden block">
+          <SmallLeftSidebar />
+        </div>
         <div className='flex-grow w-[50vw]'>
           <Profile user={userProfile?.user} posts={userProfile?.posts} />
           <ProfileActivity />

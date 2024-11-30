@@ -6,6 +6,7 @@ import useGetAllPost from '@/hooks/useGetAllPost'
 import useGetSuggestedUsers from '@/hooks/useGetSuggestedUsers'
 import Navbar from '@/components/Navbar'
 import LeftSidebar from '@/components/LeftSidebar'
+import SmallLeftSidebar from '@/components/SmallLeftSidebar'
 
 const HomePage = () => {
     useGetAllPost();
@@ -19,6 +20,9 @@ const HomePage = () => {
         <div className='flex'>
             <Navbar />
             <LeftSidebar />
+            <div className="phone:hidden block">
+                <SmallLeftSidebar />
+            </div>
             <div className='sm:flex-grow'>
                 <div className="sm:ml-[10%]">
                     <Feed />

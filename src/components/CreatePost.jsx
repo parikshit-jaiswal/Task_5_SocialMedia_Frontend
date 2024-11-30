@@ -106,6 +106,7 @@ const CreatePost = ({ open, setOpen }) => {
 
     try {
       setLoading(true);
+      console.log(formData)
       const res = await axios.post('https://snapverse-6nqx.onrender.com/posts', formData, {
         headers: {
           'Content-Type': 'multipart/form-data',
