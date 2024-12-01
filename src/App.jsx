@@ -10,14 +10,10 @@ import ChatPage from './pages/ChatPage'
 import ProfilePage from './pages/ProfilePage'
 import { io } from "socket.io-client";
 import { useDispatch, useSelector } from 'react-redux'
-import { setOnlineUsers } from './redux/chatSlice'
 import { setSocket } from './redux/socketSlice'
 import { useEffect } from 'react'
-import ExplorePage from './pages/ExplorePage'
-import Privacy from './components/privacy'
-import PersonalDetails from './components/PersonalDetails'
-import PasswordSecurity from './components/PasswordSecurity'
 import SettingsPage from './pages/SettingsPage'
+
 
 function App() {
 

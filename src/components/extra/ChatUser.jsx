@@ -10,7 +10,7 @@ function ChatUser({ follower, fetchAllMessages }) {
 
     const onclickUserHandler = (follower) => {
         dispatch(setSelectedUser(follower));
-        fetchAllMessages(follower?._id)
+        fetchAllMessages(follower?.requesterId)
     }
 
 

@@ -6,7 +6,7 @@ import { setMessages } from '@/redux/chatSlice';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
 import { MoveLeft, Smile } from 'lucide-react';
 import { useMediaQuery } from '@mui/material';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Button } from './ui/button';
 
 function MessageBox() {

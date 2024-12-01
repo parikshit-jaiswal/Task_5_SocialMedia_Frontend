@@ -1,5 +1,6 @@
 import React from 'react'
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
+import { Heart } from 'lucide-react';
 
 const Comment = ({ comment }) => {
 
@@ -36,7 +37,7 @@ const Comment = ({ comment }) => {
     }
 
     return (
-        <div className='my-5'>
+        <div className='my-5 flex items-center justify-between'>
             <div className='flex gap-4'>
                 <Avatar className="h-12 w-12 mt-2">
                     <AvatarImage src="https://res.cloudinary.com/dl10fq0cu/image/upload/v1731652645/00000000000000000000000000000000_wrtw74.jpg" />
@@ -48,6 +49,7 @@ const Comment = ({ comment }) => {
                     <p className='text-xs text-[#bbacf2]'>reply</p>
                 </div>
             </div>
+            <div className="mb-3 mr-6"><Heart size={20} /></div>
         </div>
     )
 }
