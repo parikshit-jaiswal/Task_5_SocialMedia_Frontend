@@ -1,15 +1,16 @@
 import React from 'react';
 import { Button } from './ui/button';
-import { Radio } from 'lucide-react';
+import { Radio, UserMinus } from 'lucide-react';
 import WorkspacePremiumIcon from '@mui/icons-material/WorkspacePremium';
 import PersonAddAlt1Icon from '@mui/icons-material/PersonAddAlt1';
 import { useSelector, useDispatch } from 'react-redux';
 import { v4 as uuidv4 } from 'uuid';
 import axios from 'axios';
+import { toast } from 'sonner';
 
 function RightSidebar() {
     const dispatch = useDispatch();
-    const { user, suggestedUsers, selectedUser } = useSelector((store) => store.auth);
+    const { user, suggestedUsers, selectedUser, following } = useSelector((store) => store.auth);
 
     const followHandler = async (name) => {
         try {
@@ -24,13 +25,39 @@ function RightSidebar() {
                 }
             );
 
-            if (res.data) {
-                dispatch(setComments(res.data.comments));
+            if (res) {
+                toast.success(res.data.message)
             }
         } catch (error) {
-            console.error('Error following user:', error);
+            // console.error('Error following user:', error.message);
+            toast.error(error.response.data.message)
         }
     };
+
+    const unFollowHandler = async (name) => {
+        try {
+            const res = await axios.post(
+                `https://snapverse-6nqx.onrender.com/api/unfollow/${name}`,
+                {},
+                {
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    withCredentials: true,
+                }
+            );
+
+            if (res) {
+                toast.success(res.data.message)
+                console.log(res.data)
+            }
+        } catch (error) {
+            // console.error('Error following user:', error.message);
+            toast.error(error.response.data.message)
+        }
+    };
+
+
 
     return (
         <div className="rightSidebar flex justify-end pr-8">
@@ -74,9 +101,19 @@ function RightSidebar() {
                                 <img className="h-[4rem] w-[4rem] rounded-[100%] object-cover" src={suggestedUser?.profileImage?.url} alt="Suggested user" />
                                 <p className="text-xl">{suggestedUser?.userName}</p>
                             </div>
-                            <div onClick={() => followHandler(suggestedUser.userName)} className="opacity-70 cursor-pointer hover:opacity-100">
-                                <PersonAddAlt1Icon style={{ color: '#bbacf2', fontSize: '3rem' }} />
-                            </div>
+                            {
+                                following.some(follow => follow.userName === suggestedUser.userName) ?
+                                    (
+                                        <div onClick={() => followHandler(suggestedUser.userName)} className="opacity-70 cursor-pointer hover:opacity-100">
+                                            <PersonAddAlt1Icon style={{ color: '#bbacf2', fontSize: '3rem' }} />
+                                        </div>
+                                    ) :
+                                    (
+                                        <div onClick={() => unFollowHandler(suggestedUser.userName)} className="opacity-70 cursor-pointer hover:opacity-100">
+                                            <UserMinus size={48} style={{ color: '#bbacf2', fontSize: '5rem' }} />
+                                        </div>
+                                    )
+                            }
                         </div>
                     ))}
                 </div>
