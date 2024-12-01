@@ -7,9 +7,9 @@ import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar'
 import { Link } from 'react-router-dom'
 import Comment from './Comments'
 import axios from 'axios'
-import { setPosts, setSelectedPost } from '@/redux/postSlice'
 import { toast } from 'sonner'
 import { setComments } from '@/redux/commentSlice'
+import { CommentSettingDialog } from './CommentSettingDialog'
 
 
 const CommentDialog = ({ open, setOpen, loading }) => {
@@ -19,6 +19,7 @@ const CommentDialog = ({ open, setOpen, loading }) => {
     const { comments } = useSelector(store => store.comment)
     const [sending, setSending] = useState(false)
     const dispatch = useDispatch();
+    const [on, setOn] = useState(false);
 
 
     const changeEventHandler = (e) => {
@@ -102,9 +103,13 @@ const CommentDialog = ({ open, setOpen, loading }) => {
                                     <MoreHorizontal className='cursor-pointer' />
                                 </DialogTrigger>
                                 <DialogContent className="flex flex-col items-center text-sm text-center">
-                                    <div className='cursor-pointer w-full text-[#ED4956] font-bold'>
+                                    <div className='cursor-pointer w-[20%]  text-[#ED4956] font-bold'>
                                         Unfollow
                                     </div>
+                                    <Link onClick={() => setOn(true)} className='cursor-pointer w-full hover:text-[#bbacf2]'>
+                                        Comment Setting
+                                    </Link>
+                                    <CommentSettingDialog on={on} setOn={setOn} />
                                     <div className='cursor-pointer w-full'>
                                         Add to favorites
                                     </div>
@@ -113,7 +118,7 @@ const CommentDialog = ({ open, setOpen, loading }) => {
                         </div>
                         <div className=" ml-10 mb-[-1rem] text-xl mt-5">"{selectedPost?.caption}"</div>
 
-                        <div className='flex-col-reverse flex-1 overflow-y-scroll max-h-[27.5rem] ml-5 mt-5 p-4'>
+                        <div className='flex-col-reverse flex-1 overflow-y-scroll max-h-[20.5rem] ml-5 mt-5 p-4'>
                             {loading ? <div className="">Loading..</div> :
                                 (
                                     comments.map((comment) => <Comment key={comment?._id} comment={comment} />)

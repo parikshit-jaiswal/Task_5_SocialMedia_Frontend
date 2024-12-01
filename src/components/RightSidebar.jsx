@@ -104,13 +104,13 @@ function RightSidebar() {
                             {
                                 following.some(follow => follow.userName === suggestedUser.userName) ?
                                     (
-                                        <div onClick={() => followHandler(suggestedUser.userName)} className="opacity-70 cursor-pointer hover:opacity-100">
-                                            <PersonAddAlt1Icon style={{ color: '#bbacf2', fontSize: '3rem' }} />
+                                        <div onClick={() => unFollowHandler(suggestedUser.userName)} className="opacity-70 cursor-pointer hover:opacity-100">
+                                            <UserMinus size={48} style={{ color: '#bbacf2', fontSize: '5rem' }} />
                                         </div>
                                     ) :
                                     (
-                                        <div onClick={() => unFollowHandler(suggestedUser.userName)} className="opacity-70 cursor-pointer hover:opacity-100">
-                                            <UserMinus size={48} style={{ color: '#bbacf2', fontSize: '5rem' }} />
+                                        <div onClick={() => followHandler(suggestedUser.userName)} className="opacity-70 cursor-pointer hover:opacity-100">
+                                            <PersonAddAlt1Icon style={{ color: '#bbacf2', fontSize: '3rem' }} />
                                         </div>
                                     )
                             }

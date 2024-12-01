@@ -11,9 +11,9 @@ function ChatPage() {
     const { user, selectedUser } = useSelector(store => store.auth);
     const dispatch = useDispatch();
 
-    const fetchAllMessages = async () => {
+    const fetchAllMessages = async (id) => {
         try {
-            const res = await axios.get(`https://snapverse-6nqx.onrender.com/api/messages/chatHistory/${user._id}/${selectedUser?.requesterId}`, {
+            const res = await axios.get(`https://snapverse-6nqx.onrender.com/api/messages/chatHistory/${user._id}/${id}`, {
                 headers: {
                     'Content-Type': 'application/json'
                 },

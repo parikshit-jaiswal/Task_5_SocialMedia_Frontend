@@ -43,11 +43,11 @@ const Navbar = () => {
     <nav className="navbar fixed top-0 left-0 right-0 bg-black px-6 py-4 z-50">
       <div className="flex items-center justify-between w-full">
         {/* Logo */}
-        <div className="flex items-center flex-shrink-0">
+        <Link to={'/'} className="flex items-center flex-shrink-0 cursor-pointer">
           <h1 className="text-[#bbacf2] font-baloo font-extrabold phone:text-7xl text-4xl phone:pt-5">
             hola'
           </h1>
-        </div>
+        </Link>
 
         {/* Search Bar */}
         <div className="flex-grow mx-8">
