@@ -29,15 +29,6 @@ function App() {
       dispatch(setSocket(socketio));
       socketio.emit('join', { userId: user._id });
 
-      // listen all the events
-      // socketio.on('getOnlineUsers', (onlineUsers) => {
-      //   dispatch(setOnlineUsers(onlineUsers));
-      // });
-
-      // socketio.on('notification', (notification) => {
-      //   dispatch(setLikeNotification(notification));
-      // });
-
       return () => {
         socketio.close();
         dispatch(setSocket(null));
